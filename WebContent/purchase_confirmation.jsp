@@ -25,7 +25,7 @@
 	</p>
 	<p>以上でよろしいですか？<br><br>
 
-	<form action = "/模擬プロジェクト/purchaseComplete" method = "post">
+	<form class = "body-form" action = "/模擬プロジェクト/purchaseComplete" method = "post">
 		<input class = "btn-square" type = "submit" value = "注文を完了">
 	</form>
 </body>

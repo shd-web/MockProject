@@ -3,7 +3,7 @@
 
 /*中身*/
 body{
-	margin-top: 220px;
+	margin-top: 240px;
 	font-family: "Helvetica Neue",
     Arial,
     "Hiragino Kaku Gothic ProN",
@@ -14,20 +14,8 @@ body{
 	text-align: center;
 }
 
- .body{
-	background-color: #A9A9A9;
-	margin: 10px;
-	padding: 10px;
-	text-align: center;
-}
 
-/*h1{
-	color: #4169E1;
-	font-weight: bold;
-	padding: 10px;
-	border-top: solid 2px;
-	border-bottom: solid 2px;
-}*/
+
 
 h2{
 	color: #4169E1;
@@ -52,7 +40,7 @@ h2{
 
 }
 
-.text{
+.body-form{
 	weidth: 180px;
 	height: 50px;
 }
@@ -66,8 +54,17 @@ texture:focus {
 }
 
 /*ラジオボタン*/
+ .radio{
+	background-color: #A9A9A9;
+	margin: 10px;
+	padding: 10px;
+	text-align: center;
+}
+
+
 .radio-input{
 	display: none;
+	float: left;
 }
 
 .radio-input + label{
@@ -116,6 +113,7 @@ texture:focus {
   width: 150px;
   height: 50px;
   text-align: center;
+  margin: 20px 10px;
 }
 
 .btn-squaret:hover {

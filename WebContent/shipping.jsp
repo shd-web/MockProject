@@ -17,7 +17,7 @@
 
 	%>
 	<h2>配送オプション</h2>
-	<form class = "body" action = "/模擬プロジェクト/purchaseConfirmation" method = "post">
+	<form class = "radio" action = "/模擬プロジェクト/purchaseConfirmation" method = "post">
 		<input class = "radio-input" id = "a" type ="radio" name = "shipping" value = "通常配送">
 		<label for = "a">通常配送</label><br>
 

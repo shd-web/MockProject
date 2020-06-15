@@ -23,8 +23,8 @@
 	必要事項を入力し、「この住所に届ける」ボタンをクリックしてください。<br><br>
 
 	<form action = "/模擬プロジェクト/shipping" method = "post">
-	氏名<input class = "text" type = "text" name = "name"><br>
-	住所<input class = "text" type = "text" name = "address"><br>
+	氏名<input class = "body-input" type = "text" name = "name"><br>
+	住所<input class = "body-input" type = "text" name = "address"><br>
 	<input class = "btn-square" type = "submit" value = "この住所に届ける">
 	</form>
 </body>

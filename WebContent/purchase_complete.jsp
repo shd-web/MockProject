@@ -4,13 +4,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="./ViewDesign.css">
+<link rel="stylesheet" type="text/css" href="./ForAll.css">
 <meta charset="UTF-8">
 <title>注文完了</title>
 </head>
+<%@include file = "header.jsp" %>
 <body>
-	<h1>注文完了</h1><br>
-	<h3>ご注文ありがとうございます。またのご利用をお待ちしています。</h3><br>
-	<a href = "/模擬プロジェクト/itemSearch">トップに戻る</a>
+	<h2>注文完了</h2><br>
+	<h1>ご注文ありがとうございます。またのご利用をお待ちしています。</h1><br>
+	<a href = "/模擬プロジェクト/itemSearch"><button class = "btn-square">トップに戻る</button></a>
 </body>
+<%@include file = "footer.jsp" %>
 </html>
