@@ -18,7 +18,7 @@
 <%   } %>
 <br>
 <hr>
-<form action="/login/main" method="post">
+<form action="/模擬プロジェクト/login/main" method="post">
     <button type="submit"><pre>戻る</pre></button>
 </form>
 </body>

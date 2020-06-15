@@ -8,6 +8,6 @@
 </head>
 <body>
 アカウント削除に失敗しました。<br>
-<a href="/login"><button>ログインページへ</button></a>
+<a href="/模擬プロジェクト/login"><button>ログインページへ</button></a>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>新規登録</title>
 </head>
 <body>
-<form action="/Registration" method="post">
+<form action="/模擬プロジェクト/RegistrationTry" method="post">
 <p>すべて入力してください</p>
 <p>
 <input type="radio" name="role" value="1">管理者で登録する

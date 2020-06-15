@@ -43,12 +43,12 @@ import dao.AccountsDAO;
 	     */
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	        // TODO Auto-generated method stub
-	        String loginId = request.getParameter("loginId");
+	        String name = request.getParameter("name");
 	        String pass = request.getParameter("pass");
 	        System.out.println(1);
 	        // login.jspから受け取ったログインIDとpassをビーンズにセット
 	        AccountsBeans ab = new AccountsBeans();
-	        ab.setId(loginId);
+	        ab.setName(name);
 	        ab.setPass(pass);
 
 	        // アカウントの有無を検索

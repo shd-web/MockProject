@@ -1,5 +1,4 @@
 package servlet;
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -11,11 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import JavaBeans.AccountsBeans;
+import dao.AccountsDAO;
 
 /**
- * Servlet implementation class AccountCheck
+ * Servlet implementation class AccountDAO2
  */
-@WebServlet("/AccountCheck")
+@WebServlet(name="/AccountCheck",urlPatterns= {"/AccountCheck"})
 public class AccountCheck extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -32,21 +32,31 @@ public class AccountCheck extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
+    	response.setContentType("text/html;charset=UTF-8");
+    	System.out.println("AccountCheck");
+    	String name = request.getParameter("name");
+        String pass = request.getParameter("pass");
 
-        // セッションからログイン情報を取得
-        HttpSession session = request.getSession(true);
-         String account_name = (String) session.getAttribute("name");
-         String pass= (String)session.getAttribute("pass");
-        // ロールでフォワード先を振り分ける
-         AccountsBeans ab= new AccountsBeans();
-        if(ab.getRole() == 1) {
-            RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
+        // login.jspから受け取ったログインIDとpassをビーンズにセット
+        AccountsBeans aabb = new AccountsBeans();
+        aabb.setName(name);
+        aabb.setPass(pass);
+
+        // アカウントの有無を検索
+        // 検索したアカウント情報を取得
+        AccountsDAO ad = new AccountsDAO();
+        AccountsBeans returnAabb = ad.findAccount(aabb);
+
+        if(returnAabb != null) {
+            // セッションにアカウント情報＆ロールを登録
+            HttpSession session = request.getSession();
+            session.setAttribute("account", returnAabb);
+
+            RequestDispatcher rd = request.getRequestDispatcher("delete_success.jsp");
             rd.forward(request, response);
-        } else if(ab.getRole() == 2) {
-            RequestDispatcher rd = request.getRequestDispatcher("my_page.jsp");
-            rd.forward(request, response);
+
         } else {
-            RequestDispatcher rd = request.getRequestDispatcher("login_error.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("delete_error.jsp");
             rd.forward(request, response);
         }
     }
@@ -56,6 +66,6 @@ public class AccountCheck extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        doGet(request, response);
+        doGet(request,response);
     }
 }

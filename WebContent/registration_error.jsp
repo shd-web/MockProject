@@ -8,6 +8,6 @@
 </head>
 <body>
 登録に失敗しました。<br>
-<a href="/registration"><button>新規登録ページへ</button></a>
+<a href="/模擬プロジェクト/registration"><button>新規登録ページへ</button></a>
 </body>
 </html>

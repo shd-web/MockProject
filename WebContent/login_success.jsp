@@ -8,6 +8,6 @@
 </head>
 <body>
 ログインが成功しました!
-<p><a href="/login/AccountCheck"><button type="button" name="aaa" >トップページへ</button></a></p>
+<p><a href="/itemSearch"><button type="button" name="aaa" >トップページへ</button></a></p>
 </body>
 </html>

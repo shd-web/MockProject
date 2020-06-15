@@ -9,17 +9,17 @@
 </head>
 <body>
 <h1>ユーザ削除</h1>
-<form action="./delete" method="post">
+<form action="/模擬プロジェクト/AccountCheck" method="post">
     <table>
     
         <tr>
-            <th>ID</th>
+            <th>名前</th>
             <th>パスワード</th>
             <th></th>
         </tr>
         <tr>
-            <td><input type="text" name="id"  /></td>
-            <td><input type="password" name="password" /></td>
+            <td><input type="text" name="name"  /></td>
+            <td><input type="password" name="pass" /></td>
             <td><input type="submit" value="削除"></td>
         </tr>
     </table>
@@ -32,7 +32,7 @@
 <%   } %>
 <br>
 <hr>
-<form action="/login/main" method="post">
+<form action="/模擬プロジェクト/login/main" method="post">
     <button type="submit"><pre>戻る</pre></button>
 </form>
 </body>

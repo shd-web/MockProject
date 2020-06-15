@@ -13,9 +13,10 @@ import JavaBeans.AccountsBeans;
 public class AccountsDAO {
 
     // データベース接続に使用する情報
-    final String user = "ciot";
-    final String password = "ciot";
-    final String url = "jdbc:postgresql://localhost/ciot";
+	
+	private static String url = "jdbc:postgresql://localhost/ciot";
+	private static String user = "ciot";
+	private static String pass = "ciot";
     Connection con = null;
     // ログインアカウントを探す
     public AccountsBeans findAccount(AccountsBeans ab) {
@@ -25,12 +26,12 @@ public class AccountsDAO {
 
         // データベースへ接続
         try {
-        	con = DriverManager.getConnection(url,user,password);
-        	System.out.println("接続");
-            String sql = "SELECT accountId, accountPass, accountName, roleId FROM account WHERE account_name = ? AND accountPass = ?";
+        	con = DriverManager.getConnection(url, user, pass);
+			System.out.println("DB接続完了");
+            String sql = "SELECT account_pass, account_name FROM accounts WHERE account_name = ? AND account_pass = ?";
             PreparedStatement ps= con.prepareStatement(sql);
 
-            ps.setString(1, ab.getAccoutId());
+            ps.setString(1, ab.getName());
             ps.setString(2, ab.getPass());
 
             ResultSet rs = ps.executeQuery();
@@ -38,10 +39,10 @@ public class AccountsDAO {
 
             if (rs.next()) {
                 // 見つかったアカウント情報を戻り値にセット
-                returnAb.setAccountId(rs.getString("AccountId"));
-                returnAb.setPass(rs.getString("pass"));
-                returnAb.setName(rs.getString("name"));
-                returnAb.setRole(rs.getInt("roleId"));
+            	String p = rs.getString("account_pass");
+                returnAb.setPass(p);
+                String n = rs.getString("account_name");
+                returnAb.setName(n);
             } else {
                 // アカウントがなければnullを返す
                 return null;
