@@ -26,7 +26,7 @@ public class AccountsDAO {
         // データベースへ接続
         try {
         	con = DriverManager.getConnection(url,user,password);
-
+        	System.out.println("接続");
             String sql = "SELECT accountId, accountPass, accountName, roleId FROM account WHERE account_name = ? AND accountPass = ?";
             PreparedStatement ps= con.prepareStatement(sql);
 
