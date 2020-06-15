@@ -10,6 +10,7 @@
 
 	<form action = "/模擬プロジェクト/ItemSearchResult" method = "post">
 		<select name = "category">
+			<option value = "すべて">すべて</option>
 			<option value = "靴">靴</option>
 			<option value = "帽子">帽子</option>
 		</select>

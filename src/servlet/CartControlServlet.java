@@ -40,7 +40,6 @@ public class CartControlServlet extends HttpServlet {
 		CartDAO cartDao = new CartDAO();
 		int countCart = cartDao.cartCount();
 		session.setAttribute("countCart", countCart);
-
 		//カートに商品が入っているとき
 		if(countCart != 0) {
 

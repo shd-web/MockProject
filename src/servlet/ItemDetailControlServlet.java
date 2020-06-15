@@ -28,6 +28,9 @@ public class ItemDetailControlServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		request.setAttribute("itemId", 4);
+
 		String path = "/item_detail.jsp";	//相対パス指定
 		//RequestDispatcherオブジェクトの取得
 		RequestDispatcher rd = request.getRequestDispatcher(path);

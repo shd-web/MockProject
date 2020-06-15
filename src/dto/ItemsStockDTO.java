@@ -2,7 +2,7 @@ package dto;
 
 import java.util.Date;
 
-public class Items_stockDTO {
+public class ItemsStockDTO {
 	private int itemId;
 	private int colorId;
 	private int stock;

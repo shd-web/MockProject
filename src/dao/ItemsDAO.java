@@ -6,22 +6,27 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dto.OrderDTO;
+import dto.ItemsDTO;
 
-public class OrderDAO {
+public class ItemsDAO {
 
 	private static String url = "jdbc:postgresql://localhost/ciot";
 	private static String user = "ciot";
 	private static String pass = "ciot";
 
-	private static String GETACCOUNT =
-			"SELECT account_id, account_name, address FROM accounts WHERE account_id = ?";
+	private static String GETITEMDETAIL =
+			"SELECT t1.item_id, t1.item_name, t3.category_name, t2.color_name, t1.price, t1.manufacture FROM items t1\r\n" +
+			"INNER JOIN colors t2 ON t1.color_id = t2.color_id \r\n" +
+			"INNER JOIN categories t3 ON t1.category_id = t3.category_id WHERE t1.item_id = ?;";
 
 	private Connection conn = null;
 
-	public OrderDTO accountDto(String accountId) {
+	/*
+	 * 商品詳細を取得するメソッド
+	 */
+	public ItemsDTO getItemDetail(int itemId) {
 
-		OrderDTO orderDto = new OrderDTO();
+		ItemsDTO itemsDto = new ItemsDTO();
 
 		try{
 			conn = DriverManager.getConnection(url, user, pass);
@@ -29,17 +34,16 @@ public class OrderDAO {
 
 
 			try{
-				PreparedStatement ps = conn.prepareStatement(GETACCOUNT);
-				ps.setString(1, accountId);
+				PreparedStatement ps = conn.prepareStatement(GETITEMDETAIL);
+				ps.setInt(1, itemId);
 				ResultSet rs = ps.executeQuery();
-
-				//DBのすべての行を読み、リストに格納
 				if(rs.next()) {
-					orderDto.setAccountId(rs.getString(1));
-					orderDto.setAccountName(rs.getString(2));
-					orderDto.setAddress(rs.getString(3));
+					itemsDto.setItemName(rs.getString(2));
+					itemsDto.setCategoryName(rs.getString(3));
+					itemsDto.setColorName(rs.getString(4));
+					itemsDto.setPrice(rs.getInt(5));
+					itemsDto.setManufacture(rs.getString(6));
 				}
-
 
 			}catch(SQLException e) {
 					e.printStackTrace();
@@ -60,6 +64,7 @@ public class OrderDAO {
 			}
 		}
 
-		return orderDto;
+
+		return itemsDto;
 	}
 }
