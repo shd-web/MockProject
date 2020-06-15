@@ -14,7 +14,7 @@ body{
 	text-align: center;
 }
 
-form .body{
+ .body{
 	background-color: #A9A9A9;
 	margin: 10px;
 	padding: 10px;
@@ -38,7 +38,7 @@ h2{
 }
 
 
-input{
+.body-input{
 	margin: 10px;
 	padding: 0.5em;
     outline: none;
@@ -133,17 +133,4 @@ table{
 	font-family: "Helvetica Neue";
 }
 
-
-/*フッター*/
-footer{
-	padding-top: 10px;
-    width: 100%;
-    height: 100px;
-    background-color: #333333;
-    color: white;
-    text-align: center;
-}
-ul.footer-menu li {
-display: inline;
-}
 

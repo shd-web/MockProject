@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="./LoginMain.css">
+<link rel="stylesheet" type="text/css" href="./Account.css">
 <meta charset="UTF-8">
 <title>ログイン画面</title>
 </head>
@@ -11,8 +11,8 @@
 <body>
 <form action="login.jsp" method="post">
 <h2>ログイン</h2>
-メールアドレス：<input type="text" name="loginId" required><br>
-　　パスワード：<input type="password" name="pass" required><br>
+メールアドレス：<input class = "body-input" type="text" name="loginId" required><br>
+　　パスワード：<input class = "body-input" type="password" name="pass" required><br>
 <input class = "main-button" type="submit" value="ログイン"><br>
 </form>
 <p>

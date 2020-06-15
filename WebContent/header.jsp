@@ -23,14 +23,14 @@
 	    <a>About</a>
 	    <ul>
 	      	<li><a href = "#">会社概要</a></li>
-	      	<li>IR情報</li>
-	      	<li>採用情報</li>
+	      	<li><a href = "#">IR情報</a></li>
+	      	<li><a href = "#">採用情報</a></li>
       </ul></li>
     <li class="nav-list-item">
     <a>Search</a>
     <ul>
       	<li><form class = "search" action = "item_search_result.jsp" method = "post">
-				<input class = "header" type = "text" name = "address" placeholder = "キーワード">
+				<input class = "header-input" type = "text" name = "address" placeholder = "キーワード">
 				<input class = "header-btn-square" type = "submit" value = "検索">
       		</form>
       	</li>

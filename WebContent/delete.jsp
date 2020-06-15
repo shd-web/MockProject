@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="./LoginMain.css">
+<link rel="stylesheet" type="text/css" href="Account.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>退会画面</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/LoginMain.css">
@@ -11,9 +11,9 @@
 <%@include file = "header.jsp" %>
 <body>
 <h2>退会</h2>
-<form class = "body" action="./UserDelServlet" method="post">
-	メールアドレス<input type="text" name="id"  /><br>
-		　　パスワード<input type="password" name="password" /><br>
+<form action="./UserDelServlet" method="post">
+	メールアドレス<input class = "body-input" type="text" name="id"  /><br>
+		　　パスワード<input class = "body-input" type="password" name="password" /><br>
      <input class = "main-button" type="submit" value="削除">
 </form>
 <%

@@ -9,6 +9,7 @@ header {
   background-color: #333333;
   position: fixed;
   top: 0px;
+  padding-bottom: 10px;
 }
 
 
@@ -65,9 +66,9 @@ header .headline{
 }
 
 
-.header{
+.header-input{
 	width: 160px;
-	height: 20px;
+	height: 30px;
 	text-size: 20px;
 }
 

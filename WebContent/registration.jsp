@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="./LoginMain.css">
+<link rel="stylesheet" type="text/css" href="./Account.css">
 <meta charset="UTF-8">
 <title>新規登録画面</title>
 </head>
@@ -16,9 +16,9 @@
 <input class ="radio-input" id = "a" type="radio" name="role" value="1"><label for = "a">管理者で登録する</label>
 <input class ="radio-input" id = "b" type="radio" name="role" value="2" checked><label for = "b">ユーザーで登録する</label>
 </p>
-　　　名前：<input type="text" name="name" required><br>
-ユーザーID：<input type="text" name="loginId" required><br>
-パスワード：<input type="password" name="pass" required><br>
+　　　名前：<input class = "body-input" type="text" name="name" required><br>
+ユーザーID：<input class = "body-input" type="text" name="loginId" required><br>
+パスワード：<input class = "body-input" type="password" name="pass" required><br>
 <input class = "main-button" type="submit" value="登録"><br>
 </form>
 </body>
