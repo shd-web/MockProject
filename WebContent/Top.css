@@ -1,0 +1,32 @@
+@charset "UTF-8";
+h2{
+	padding-top: 50px;
+	font-size: 70px;
+	text-align: center;
+	color: white;
+	text-shadow:1px 2px 3px black;
+}
+
+h3{
+	text-align: center;
+	font-size: 30px;
+	color: white;
+	text-shadow:1px 2px 3px black;
+}
+
+
+body{
+	margin-top: 210px;
+	font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+	background-color: #DCDCDC;
+}
+
+div{
+	height: 600px;
+	background-image: url(./shoes.jpg);
+}
