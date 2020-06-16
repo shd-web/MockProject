@@ -22,13 +22,14 @@ public class LoginCheck extends HttpServlet {
             throws ServletException, IOException {
     	String path = "";
     	
-    	String name = (String)request.getAttribute("name");
+    	String id = (String)request.getAttribute("id");
     	String pass = (String)request.getAttribute("pass");
     	AccountsDAO bc = new AccountsDAO();
     	
     	AccountsBeans beans = new AccountsBeans();
-    	beans.setName(name);
+    	beans.setId(id);
     	beans.setPass(pass);
+    	
     	if(bc.findAccount(beans) != null) {
     		path = "/login_success.jsp";
     	}else {

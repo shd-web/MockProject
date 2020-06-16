@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -8,33 +9,35 @@ import java.sql.SQLException;
 import JavaBeans.AccountsBeans;
 
 public class AccountRegisterDAO {
-    // データベース接続に使用する情報
-        final String ciotId = "ciot";
-        final String ciotPass = "ciot";
-        final String ciotUrl = "";
+	// データベース接続に使用する情報
+	private static String url = "jdbc:postgresql://localhost/ciot";
+	private static String user = "ciot";
+	private static String pass = "ciot";
+	Connection con = null;
 
-    public  AccountRegisterDAO(AccountsBeans ab) {
+	// ログインアカウントを探す
+	public boolean regAccount(AccountsBeans ra) {
+		try {
+			con = DriverManager.getConnection(url, user, pass);
+			System.out.println("DB接続完了");
+			String sql = "INSERT INTO accounts (account_id, account_pass, account_name, address,record_date) VALUES (?, ?, ?, ?, ?)";
+			
+			PreparedStatement ps= con.prepareStatement(sql);
 
-        try (Connection con = DriverManager.getConnection(ciotUrl, ciotId, ciotPass)) {
-
-            String sql = "INSERT INTO account (loginId, pass, name, roleId) VALUES (?, ?, ?, ?)";
-            PreparedStatement ps= con.prepareStatement(sql);
-
-            ps.setString(1, ab.getLoginId());
-            ps.setString(2, ab.getPass());
-            ps.setString(3, ab.getName());
-            ps.setInt(4, ab.getRole());
-
-            int r = ps.executeUpdate();
-
-            if(r != 0) {
-                System.out.println("新規登録成功！");
-            } else {
-                System.out.println("新規登録失敗");
-            }
+			ps.setString(1, ra.getId());
+			ps.setString(2, ra.getPass());
+			ps.setString(3, ra.getName());
+			ps.setString(4, ra.getAddress());
+			Date dt = new Date(new java.util.Date().getTime());
+			ps.setDate(5, dt);
+			System.out.println("sql="+sql);
+			int r = ps.executeUpdate();
+                System.out.println(r+"件新規登録成功！");
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
-    }
+		return true;
+	}
 }

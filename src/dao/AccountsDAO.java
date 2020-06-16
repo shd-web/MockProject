@@ -13,7 +13,7 @@ import JavaBeans.AccountsBeans;
 public class AccountsDAO {
 
     // データベース接続に使用する情報
-	
+
 	private static String url = "jdbc:postgresql://localhost/ciot";
 	private static String user = "ciot";
 	private static String pass = "ciot";
@@ -28,11 +28,17 @@ public class AccountsDAO {
         try {
         	con = DriverManager.getConnection(url, user, pass);
 			System.out.println("DB接続完了");
-            String sql = "SELECT account_pass, account_name FROM accounts WHERE account_name = ? AND account_pass = ?";
+            String sql = "SELECT account_pass, account_id FROM accounts WHERE account_pass = ? AND account_id = ? AND delete_date IS NULL";
             PreparedStatement ps= con.prepareStatement(sql);
 
-            ps.setString(1, ab.getName());
-            ps.setString(2, ab.getPass());
+            System.out.println("sqr = " + sql);
+           // ps.setString(1, ab.getId());
+            String pass=ab.getPass();
+            ps.setString(1, pass);
+            
+            String id = ab.getId();
+            ps.setString(2, id);
+           // ps.setString(4, ab.getAddress());
 
             ResultSet rs = ps.executeQuery();
 
@@ -41,7 +47,7 @@ public class AccountsDAO {
                 // 見つかったアカウント情報を戻り値にセット
             	String p = rs.getString("account_pass");
                 returnAb.setPass(p);
-                String n = rs.getString("account_name");
+                String n = rs.getString("account_id");
                 returnAb.setName(n);
             } else {
                 // アカウントがなければnullを返す

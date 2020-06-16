@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import JavaBeans.AccountsBeans;
-import dao.AccountsDAO;
+import dao.AccountDeleteDAO;
 
 /**
  * Servlet implementation class AccountDAO2
@@ -34,18 +34,18 @@ public class AccountCheck extends HttpServlet {
         // TODO Auto-generated method stub
     	response.setContentType("text/html;charset=UTF-8");
     	System.out.println("AccountCheck");
-    	String name = request.getParameter("name");
+    	String id = request.getParameter("id");
         String pass = request.getParameter("pass");
 
         // login.jspから受け取ったログインIDとpassをビーンズにセット
         AccountsBeans aabb = new AccountsBeans();
-        aabb.setName(name);
+        aabb.setId(id);
         aabb.setPass(pass);
 
         // アカウントの有無を検索
         // 検索したアカウント情報を取得
-        AccountsDAO ad = new AccountsDAO();
-        AccountsBeans returnAabb = ad.findAccount(aabb);
+        AccountDeleteDAO ad = new AccountDeleteDAO();
+        AccountsBeans returnAabb = ad.deleteAccount(aabb);
 
         if(returnAabb != null) {
             // セッションにアカウント情報＆ロールを登録

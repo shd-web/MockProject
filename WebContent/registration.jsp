@@ -9,12 +9,11 @@
 <body>
 <form action="/模擬プロジェクト/RegistrationTry" method="post">
 <p>すべて入力してください</p>
-<p>
-<input type="radio" name="role" value="1">管理者で登録する
-<input type="radio" name="role" value="2" checked>ユーザーで登録する
-</p>
-　　　名前：<input type="text" name="name" required><br>
-パスワード：<input type="password" name="pass" required><br>
+
+　　　　　　　名前：<input type="text" name="name" value ="中根優里" required><br>
+　　　　パスワード：<input type="password" name="pass" value ="yuri" required><br>
+　　　　　　　住所：<input type="text" name="address" value="日本" required><br>
+メールアドレス（ID)：<input type="text" name="id" value="mail" required><br>
 <input type="submit" value="登録"><br>
 </form>
 </body>

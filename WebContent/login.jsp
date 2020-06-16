@@ -8,7 +8,7 @@
 </head>
 <body>
 <form action="/模擬プロジェクト/AccountSearch" method="post">
-名前：<input type="text" name="name" required><br>
+ID（メールアドレス）：<input type="text" name="id" required><br>
 パスワード：<input type="password" name="pass" required><br>
 <input type="submit" value="ログイン"><br>
 </form>

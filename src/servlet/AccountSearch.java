@@ -33,12 +33,12 @@ public class AccountSearch extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
     	response.setContentType("text/html;charset=UTF-8");
-    	String name = request.getParameter("name");
+    	String id = request.getParameter("id");
         String pass = request.getParameter("pass");
 
         // login.jspから受け取ったログインIDとpassをビーンズにセット
         AccountsBeans ab = new AccountsBeans();
-        ab.setName(name);
+        ab.setId(id);
         ab.setPass(pass);
 
         // アカウントの有無を検索
