@@ -15,7 +15,13 @@ body{
 }
 
 
-
+/*h1{
+	color: #4169E1;
+	font-weight: bold;
+	padding: 10px;
+	border-top: solid 2px;
+	border-bottom: solid 2px;
+}*/
 
 h2{
 	color: #4169E1;
@@ -33,16 +39,10 @@ h2{
     border: 1px solid #DDD;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    border-radius: 3px;
     font-size: 10px;
     width: 400px;
     height: 30px;
-
-}
-
-.body-form{
-	weidth: 180px;
-	height: 50px;
+	border-radius: 10px;
 }
 
 
@@ -50,7 +50,12 @@ input[type="text"]:focus,
 texture:focus {
     box-shadow: 0 0 7px #3498db;
     border: 1px solid #3498db;
+}
 
+
+form{
+	padding: 10px;
+	text-align: center;
 }
 
 /*ラジオボタン*/
@@ -58,7 +63,6 @@ texture:focus {
 	background-color: #A9A9A9;
 	margin: 10px;
 	padding: 10px;
-	text-align: center;
 }
 
 
@@ -114,21 +118,68 @@ texture:focus {
   height: 50px;
   text-align: center;
   margin: 20px 10px;
+  border-radius: 10px;
 }
 
 .btn-squaret:hover {
   background-image: linear-gradient(#6795fd 0%, #67ceff 70%);
 }
 
+
+.btn-square-small {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #FFF;
+  background: #8cd460;
+  transition: .4s;
+  font-size: 10px;
+  font-weight: bold;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.btn-square-smallt:hover {
+  background-image: linear-gradient(#6795fd 0%, #67ceff 70%);
+}
+
+
+
 p{
 	font-size: 20px;
 }
 
 
+/*テーブル*/
 table{
-	text-align: center;
+	backgroud-color: white;
 	margin: auto;
-	font-family: "Helvetica Neue";
+	border-collapse: collapse;
+	border-spacing: 0px;
+	width: 90%;
+}
+table tr{
+	border-bottom: solid 1px #eee;
+	cursor: pointer;
+}
+
+table tr:hover{
+  background-color: #b4c4f3;
+}
+
+table th,table td{
+  text-align: center;
+  width: 20%;
+  padding: 15px 10px;
+}
+
+table td.teble{
+  background-size: 35px;
+  background-position: left 5px center;
+  background-repeat: no-repeat;
+  padding-left: 30px;
 }
 
 

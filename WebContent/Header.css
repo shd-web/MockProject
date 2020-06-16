@@ -70,6 +70,7 @@ header .headline{
 	width: 160px;
 	height: 30px;
 	text-size: 20px;
+	border-radius: 5px;
 }
 
 
@@ -87,6 +88,7 @@ header .headline{
   height: 40px;
   text-align: center;
   padding: auto;
+  border-radius: 5px;
 }
 
 .btn-squaret:hover {

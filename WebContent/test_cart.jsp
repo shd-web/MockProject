@@ -8,12 +8,13 @@
 <meta charset="UTF-8">
 <title>ショッピングカート</title>
 </head>
+<%@ include file = "header.jsp" %>
 <body>
 
-	<h1>ショッピングカート</h1>
-	<table border = "1">
+	<h2>ショッピングカート</h2>
+	<table>
 
-		<tr bgcolor = "white">
+		<tr>
 			<th>商品名</th>
 			<th>商品の色</th>
 			<th>メーカ―名</th>
@@ -24,8 +25,7 @@
 		</tr>
 
 		<tr>
-
-			<td>くつA</td>
+			<td class = "table">くつA</td>
 			<td>ショッキングピンク</td>
 			<td>ABAマート</td>
 			<td>50000円</td>
@@ -34,18 +34,32 @@
 
 				</select></form></td>
 			<td>〇</td>
-			<td><form><input type = "submit" value="カートから削除"></form></td>
+			<td><form><input class = "btn-square-small" type = "submit" value="カートから削除"></form></td>
+
+		</tr>
+		<tr>
+			<td class = "table">くつB</td>
+			<td>ショッキングブルー</td>
+			<td>シューズ流通センター</td>
+			<td>500円</td>
+			<td><form><select name="quantity">
+				<option value = "1" selected>1</option>
+
+				</select></form></td>
+			<td>〇</td>
+			<td><form><input class = "btn-square-small" type = "submit" value="カートから削除"></form></td>
 
 		</tr>
 
 	</table><br>
 
 
-	合計50000円
+	合計50500円
 	<form>
-		<input type = "submit" value = "レジに進む">
+		<input class = "btn-square" type = "submit" value = "レジに進む">
 	</form><br>
-	<a href = ".html"></a>トップページへ<br>
+	<a href = "top.jsp">トップページへ</a><br>
 
 </body>
+<%@ include file = "footer.jsp" %>
 </html>

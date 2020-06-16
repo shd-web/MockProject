@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+header {
+  color:white;
+  font-size: 20px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #333333;
+  position: fixed;
+  top: 0px;
+  padding-bottom: 10px;
+}
+
+
+header .headline{
+  font-size: 50px;
+  font-family:serif;
+}
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+  font-family: "Helvetica Neue";
+}
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+
+
+/*ドロップダウン機能*/
+.nav-list > li {/*親階層のみ幅を25%にする*/
+    width: 25%;
+}
+
+.nav-list li {
+    list-style: none;
+    position: relative;
+    padding: auto;
+}
+.nav-list li a {
+    border-right: 1px solid #eee;
+    color: #fff;
+    display: block;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+.nav-list li li {
+    height: 0;
+    overflow: hidden;
+    transition: .5s;
+    text-align: center;
+    text-decoration: none;
+    padding: auto;
+}
+
+.nav-list li:hover > ul > li {
+    height: 2rem;
+    overflow: visible;
+}
+
+
+.header-input{
+	width: 160px;
+	height: 30px;
+	text-size: 20px;
+	border-radius: 5px;
+}
+
+
+
+/*遷移ボタン*/
+.header-btn-square {
+  display: inline-block;
+  text-decoration: none;
+  color: #FFF;
+  background: #8cd460;
+  transition: .4s;
+  font-weight: bold;
+  font-size: 15px;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  padding: auto;
+  border-radius: 5px;
+}
+
+.btn-squaret:hover {
+  background-image: linear-gradient(#6795fd 0%, #67ceff 70%);
+}
+h2{
+	padding-top: 50px;
+	font-size: 70px;
+	text-align: center;
+	color: white;
+	text-shadow:1px 2px 3px black;
+}
+
+h3{
+	text-align: center;
+	font-size: 30px;
+	color: white;
+	text-shadow:1px 2px 3px black;
+}
+
+
+body{
+	margin-top: 210px;
+	font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+	background-color: #DCDCDC;
+}
+
+div{
+	height: 600px;
+	background-image: url(./shoes.jpg);
+}

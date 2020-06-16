@@ -5,7 +5,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="./Footer.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>footer</title>
 </head>
  <footer>
 	<ul class="footer-menu">
