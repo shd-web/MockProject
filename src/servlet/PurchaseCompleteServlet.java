@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.CartDAO;
 import dao.HistoryDAO;
 import dto.CartDTO;
+import dto.HistoryDTO;
 import util.QuantityTuple;
 
 /**
@@ -36,19 +38,34 @@ public class PurchaseCompleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//セッションからカートリストを取得し、数量と商品IDをIntTuple型のリストに格納
 		HttpSession session = request.getSession();
-		List<CartDTO> cartList = (List<CartDTO>) session.getAttribute("cartList");
 
+		//セッションからアカウントID、配送先住所を取得
+		HistoryDAO historyDao = new HistoryDAO();
+		HistoryDTO historyDto = new HistoryDTO();
+		String shippingAddress = (String)request.getAttribute("shippingAddress");
+		String accountId = (String)session.getAttribute("accountId");
+
+		//セッションからカートリストを取得し数量と商品IDをQuantityTuple型のリストに格納
+		List<CartDTO> cartList = (List<CartDTO>) session.getAttribute("cartList");
 		List<QuantityTuple> quantityList = new ArrayList<QuantityTuple>();
 		for(CartDTO cart : cartList) {
 			QuantityTuple quantityTuple = new QuantityTuple();
 			quantityTuple.quantity = cart.getQuantity();
 			quantityTuple.itemId = cart.getItemId();
+			quantityList.add(quantityTuple);
 		}
-		//履歴テーブルに行を追加
-		HistoryDAO historyDao = new HistoryDAO();
-		historyDao.insertHistory(quantityList);
+
+		//履歴テーブル、履歴商品テーブルに行挿入、在庫テーブルを更新
+		//成功したらセッションからカートを削除
+		boolean isSuccess
+			= historyDao.insertPurchaseHistory(quantityList, accountId, shippingAddress);
+		System.out.println("isSuccess:"+isSuccess);
+		if(isSuccess) {
+			CartDAO cartDao = new CartDAO();
+			cartDao.deleteCartAll();
+			session.removeAttribute("cartList");
+		}
 
 		String path = "/WEB-INF/purchase_complete.jsp";	//相対パス指定
 		//RequestDispatcherオブジェクトの取得

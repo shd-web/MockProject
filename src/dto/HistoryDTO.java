@@ -5,9 +5,9 @@ import java.sql.Date;
 public class HistoryDTO {
 
 	private int historyId;
-	private int itemId;
+	private String accountId;
+	private String otherAddress;
 	private Date purchaseDate;
-
 
 	//historyIDのセッターとゲッター
 	public void setHistoryId(int historyId) {
@@ -18,14 +18,24 @@ public class HistoryDTO {
 		return historyId;
 	}
 
-	//商品IDのセッターとゲッター
-	public void setItemId(int itemId) {
-		this.itemId = itemId;
+	//accountIDのセッターとゲッター
+	public void setAccountId(String accountId) {
+			this.accountId = accountId;
 	}
 
-	public int getItemId() {
-		return itemId;
+	public String getAccountId() {
+		return accountId;
 	}
+
+	//別送住所のセッターとゲッター
+	public void setOtherAddress(String otherAddress) {
+			this.otherAddress = otherAddress;
+	}
+
+	public String getOtherAddress() {
+		return otherAddress;
+	}
+
 	//購入日のセッターとゲッター
 	public void setPurchaseDate(Date purchaseDate) {
 			this.purchaseDate = purchaseDate;
@@ -34,5 +44,4 @@ public class HistoryDTO {
 	public Date getPurchaseDate() {
 		return purchaseDate;
 	}
-
 }

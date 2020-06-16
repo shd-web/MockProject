@@ -71,8 +71,8 @@ public class PurchaseControlServlet extends HttpServlet {
 
 		//セッションのアカウントIDを使ってDBから購入者の名前と住所を取得
 		//中根さんの方と結合するまで適当にaccountIdをセッションに登録-----
-		session.setAttribute("accountId", "shiho_ando@densan-s.co.jp");
-		session.setAttribute("accountName", "安藤　志帆");
+		session.setAttribute("accountId", "abc@yohoo.co.jp");
+		session.setAttribute("accountName", "山田太郎");
 		//----------------------------------------------------------------
 		OrderDAO orderDao = new OrderDAO();
 		OrderDTO orderDto= new OrderDTO();

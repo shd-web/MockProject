@@ -100,15 +100,13 @@
 
 			</script>
 
-			></td>
+			</td>
 			<td><%
 				if (cart.getStock() >= cart.getQuantity()) out.print("〇");
 				else out.print("　×　在庫：" + cart.getStock());
 
 			%></td>
-			<td><form>
-					<input type = "submit" value="変更">
-			</form></td>
+
 			<td><form action = "/模擬プロジェクト/cartDelete" method = "post">
 					<input type = "submit" value="カートから削除">
 					<input type = "hidden" name = "itemId<%= j%>>" value = "<%= cart.getItemId()%>">

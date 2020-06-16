@@ -9,6 +9,7 @@ public class ItemsDTO {
 	private String colorName;
 	private int price;
 	private String manufacture;
+	private int stock;
 
 	//商品IDのセッターとゲッター
 	public void setItemId(int itemId) {
@@ -79,5 +80,13 @@ public class ItemsDTO {
 
 	public String getManufacture() {
 		return manufacture;
+	}
+	//在庫のセッターとゲッター
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public int getStock() {
+		return stock;
 	}
 }
