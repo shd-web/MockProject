@@ -36,8 +36,21 @@ public class CartControlServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-		HttpSession session = request.getSession();
+		//item_detail.jspのフォームで送られてきた商品ID、数量と色IDをカートテーブルに追加
+		String itemIdString = request.getParameter("itemId");
+
 		CartDAO cartDao = new CartDAO();
+		if(itemIdString != null ) {
+
+			int itemId = Integer.parseInt(itemIdString);
+			int quantity = Integer.parseInt(request.getParameter("quantity"));
+			int colorId = Integer.parseInt(request.getParameter("colorId"));
+			boolean resultInsert = cartDao.Insert(itemId, colorId, quantity);
+		}
+
+
+		//セッションに登録されているカートリストを取得
+		HttpSession session = request.getSession();
 		int countCart = cartDao.cartCount();
 		session.setAttribute("countCart", countCart);
 		//カートに商品が入っているとき

@@ -35,7 +35,8 @@ public class CartDeleteControlServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int itemId = Integer.parseInt(request.getParameter("itemId"));
+		String itemIdString = request.getParameter("itemId");
+		int itemId = Integer.parseInt(itemIdString);
 		CartDAO cartDao = new CartDAO();
 
 		//DBから削除

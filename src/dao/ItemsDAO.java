@@ -15,7 +15,7 @@ public class ItemsDAO {
 	private static String pass = "ciot";
 
 	private static String GETITEMDETAIL =
-			"SELECT t1.item_id, t1.item_name, t3.category_name, t2.color_name, t1.price, t1.manufacture FROM items t1\r\n" +
+			"SELECT t1.item_id, t1.item_name, t3.category_name, t2.color_name, t1.price, t1.manufacture, t1.color_id FROM items t1\r\n" +
 			"INNER JOIN colors t2 ON t1.color_id = t2.color_id \r\n" +
 			"INNER JOIN categories t3 ON t1.category_id = t3.category_id WHERE t1.item_id = ?;";
 
@@ -43,6 +43,7 @@ public class ItemsDAO {
 					itemsDto.setColorName(rs.getString(4));
 					itemsDto.setPrice(rs.getInt(5));
 					itemsDto.setManufacture(rs.getString(6));
+					itemsDto.setColorId(rs.getInt(7));
 				}
 
 			}catch(SQLException e) {
