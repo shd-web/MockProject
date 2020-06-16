@@ -5,9 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="./ForAll.css">
 <meta charset="UTF-8">
 <title>ショッピングカート</title>
 </head>
+<%@include file = "header.jsp" %>
 <body>
 	<%
 		//カートに商品がないとき
@@ -35,7 +37,7 @@
 	<form name = "form1" action = "/模擬プロジェクト/purchase">
 	<table border = "1">
 
-		<tr bgcolor = "#7fffd4">
+		<tr bgcolor = "white">
 			<th>商品名</th>
 			<th>商品の色</th>
 			<th>メーカ―名</th>
@@ -130,4 +132,5 @@
 	<a href = "/模擬プロジェクト/itemSearch"></a>トップページへ<br>
 
 </body>
+<%@include file = "footer.jsp" %>
 </html>
