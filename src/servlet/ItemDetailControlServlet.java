@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ItemsDAO;
+
 /**
  * Servlet implementation class ItemDetailControlServlet
  */
@@ -28,6 +30,18 @@ public class ItemDetailControlServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+		//村井君のと結合したら削除---------
+		request.setAttribute("itemId", 4);
+		//----------------------------------
+
+		//itemSearchResultから送られてきた商品IDを取得
+		int itemId = (int)request.getAttribute("itemId");
+		ItemsDAO itemsDao = new ItemsDAO();
+		itemsDao.getItemDetail(itemId);
+
+
 		String path = "/item_detail.jsp";	//相対パス指定
 		//RequestDispatcherオブジェクトの取得
 		RequestDispatcher rd = request.getRequestDispatcher(path);
