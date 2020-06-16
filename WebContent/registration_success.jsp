@@ -9,11 +9,8 @@
 </head>
 <%@include file = "header.jsp" %>
 <body>
-<h3>新規登録が完了しました!</h3>
-<div class = "button-area">
-<a href="/login/AccountCheck">
-<button class = "main-button-long" type="button" >ユーザーor管理者ページへ</button></a>
-</div>
+<p><a href="/itemSearch"><button class = "main-button-long" type="button" name="aaa" >トップページへ</button></a></p>
+<h3>新規登録が完了しました！</h3>
 </body>
 <%@include file = "footer.jsp" %>
 </html>
