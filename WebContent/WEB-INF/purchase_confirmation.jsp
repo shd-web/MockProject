@@ -6,9 +6,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="./ForAll.css">
 <meta charset="UTF-8">
 <title>Purchase Confirmation</title>
 </head>
+<%@include file = "header.jsp" %>
 <body>
 	<%
 		request.setCharacterEncoding("UTF-8");
@@ -16,7 +18,7 @@
 		String address = request.getParameter("address");
 		String shipping = request.getParameter("shipping");
 	%>
-	<h1>注文内容を確認する</h1>
+	<h2>確認画面</h2>
 
 	<h5>「注文を確定する」ボタンを押してご注文いただくことで、お客様は当サイトの各種規約、
 	プライバシー規約および商品ページ・キャンペーンページ上の販売条件ならびに配送料と注文合計に
@@ -49,9 +51,10 @@
 	<h3>配送方法<br></h3>
 	<h5><%= shipping%><br><br></h5>
 
-	<form action = "/模擬プロジェクト/purchaseComplete" method = "post">
-		<input type = "submit" value = "注文を確定する">
 		<input type = "hidden" name = "shippingAddress" value = "<%= shipping%>">
+	<form class = "body-form" action = "/模擬プロジェクト/purchaseComplete" method = "post">
+		<input class = "btn-square" type = "submit" value = "注文を確定する">
 	</form>
 </body>
+<%@include file = "footer.jsp" %>
 </html>
