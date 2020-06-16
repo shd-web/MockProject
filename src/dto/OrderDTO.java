@@ -2,17 +2,17 @@ package dto;
 
 public class OrderDTO {
 
-	private int accountId;
+	private String accountId;
 	private String accountName;
 	private String address;
 
 	//アカウントIDのセッター
-	public void setAccountId(int accountId) {
+	public void setAccountId(String accountId) {
 			this.accountId = accountId;
 	}
 
 	//アカウントIDのゲッター
-	public int getAccountId() {
+	public String getAccountId() {
 		return accountId;
 	}
 

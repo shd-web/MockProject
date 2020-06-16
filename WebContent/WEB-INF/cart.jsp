@@ -9,15 +9,16 @@
 <title>ショッピングカート</title>
 </head>
 <body>
-
 	<%
 		//カートに商品がないとき
 		if((int)session.getAttribute("countCart") == 0){
+	%>
 
-			request.setAttribute("cartMessage", "カートは空です。<br><br>");
-
+			カートは空です。<br><br>
+	<%
 		}else{ //カートに商品があるとき(L86まで１ブロック)
 
+			int j =0; //ウェブ画面のカート内商品数のカウンタ
 			int	sum = (int)session.getAttribute("sum");
 
 			List<CartDTO> cartList = (List<CartDTO>) session.getAttribute("cartList");
@@ -29,9 +30,9 @@
 	%>
 	<h1>ショッピングカート</h1>
 
-	${cartMessage } <!--削除しましたのメッセージ-->
 
 
+	<form name = "form1" action = "/模擬プロジェクト/purchase">
 	<table border = "1">
 
 		<tr bgcolor = "#7fffd4">
@@ -46,14 +47,18 @@
 	<%
 
 			for(CartDTO cart : cartList){
+
 	%>
 		<tr>
 			<td><%=cart.getItemName() %></td>
 			<td><%=cart.getColorName() %></td>
 			<td><%=cart.getManufacturer() %></td>
 			<td><%=cart.getPrice() %>円</td>
-			<td><form><select name="quantity">
-			<% for(int i = 1; i <= 20; i++){
+			<td>
+					<select name = "quantity" id="quantity" onclick = "handleBtnClick(event)">
+			<%
+				j++;
+				for(int i = 1; i <= 20; i++){
 					if(i == cart.getQuantity()){
 			%>
 						<option value = "<%= i %>" selected><%=i %></option>
@@ -62,17 +67,52 @@
 			<%  	}
 			   	}
 			%>
-			</select></form></td>
+					</select>
+					<input type = "hidden" name = "itemId<%= j%>" value = "<%= cart.getItemId()%>">
+
+			<script type="text/javascript">
+			function handleBtnClick(event){
+				//ウェブ画面上で選択された値を取得
+				var selectElements = document.form1.quantity ;
+				for(var selectElement in selectElements){
+					console.log(selectElement);
+					//var selectedIndex= selectElements[i].selectedIndex;
+
+					console.log("before "+selectedIndex);
+					var a = selectElement.options[selectedIndex].selected;
+					console.log(a);
+				}
+				//var element = document.getElementById("quantity");
+				//console.log("element"+element);
+				//var elements = element.options;
+				//console.log("elements:"+elements);
+				//elements[selected].selected = true;
+				//console.log(elements[selected].selected);
+				//console.log(elements[0].selected);
+				//setValue(element, selected + 1);
+			}
+
+			//element:select要素の下のhidden要素。value属性に数量をセットする
+			function setValue(element,value){
+				element.setAttribute("value", value);
+			}
+
+
+			</script>
+
+			</td>
 			<td><%
 				if (cart.getStock() >= cart.getQuantity()) out.print("〇");
 				else out.print("　×　在庫：" + cart.getStock());
 
 			%></td>
+
 			<td><form action = "/模擬プロジェクト/cartDelete" method = "post">
 					<input type = "submit" value="カートから削除">
-					<input type = "hidden" name = "itemId" value = "<%= cart.getItemId()%>">
+					<input type = "hidden" name = "itemId<%= j%>>" value = "<%= cart.getItemId()%>">
 			</form></td>
 	<%
+
 			}
 	%></tr>
 
@@ -80,7 +120,8 @@
 
 
 	合計　<%=sum %>円
-	<form action = "/模擬プロジェクト/purchase">
+
+		<input type = "hidden" name = "numOfItems" value = "<%= j%>">
 		<input type = "submit" value = "レジに進む">
 	</form><br>
 	<%

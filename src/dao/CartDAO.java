@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dto.CartDTO;
+import util.QuantityTuple;
 
 public class CartDAO {
 
@@ -23,10 +24,15 @@ public class CartDAO {
 			"INNER JOIN items_stock t2 ON t1.item_id = t2.item_id\r\n" +
 			"INNER JOIN items t3 ON t1.item_id = t3.item_id\r\n" +
 			"INNER JOIN colors t4 ON t4.color_id= t1.color_id;";
-			 //"SELECT * FROM categories;";
+
 	 private static String COUNTCART = "SELECT COUNT(*) FROM cart;";
 
 	 private static String DELETEFROMCART = "DELETE FROM cart WHERE item_id = ?";
+
+	 private static String DELETECARTALL =
+			 "DELETE FROM cart;";
+
+	 private static String CHANGECART = "UPDATE cart SET quantity = ? WHERE item_id = ?";
 
 	 private Connection conn = null;
 
@@ -129,7 +135,7 @@ public class CartDAO {
 	}
 
 	 /*
-	  * cartテーブルから削除するメソッド
+	  * cartテーブルから一行削除するメソッド
 	  */
 	 public void cartDelete(int deletePlace) {
 
@@ -140,7 +146,9 @@ public class CartDAO {
 				try{
 					PreparedStatement ps = conn.prepareStatement(DELETEFROMCART);
 					ps.setInt(1, deletePlace);
-					ps.executeUpdate();
+					int result = ps.executeUpdate();
+					if(result >0) System.out.println("カート内の商品の削除が成功しました。");
+					else System.out.println("カート内の商品の削除が失敗しました。");
 
 				}catch(SQLException e) {
 					e.printStackTrace();
@@ -160,4 +168,76 @@ public class CartDAO {
 			}
 		}
 	 }
+
+	 /*
+	  * カートテーブルからすべての行を削除するメソッド
+	  */
+	 public void deleteCartAll() {
+
+		 try{
+				conn = DriverManager.getConnection(url, user, pass);
+				System.out.println("DB接続完了");
+
+				try{
+					PreparedStatement ps = conn.prepareStatement(DELETECARTALL);
+					int result = ps.executeUpdate();
+					if(result >0) System.out.println("カート内のすべての商品の削除が成功しました。");
+					else System.out.println("カート内のすべての商品の削除が失敗しました。");
+
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+
+		}catch(SQLException e) {
+				e.printStackTrace();
+				System.out.println("DB接続エラー");
+		}finally {
+			try{
+				if(conn!=null && !conn.isClosed()) {
+				conn.close();
+				System.out.println("DB切断完了");
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	 }
+
+	/**
+	 * カート内の商品の数量を変更するメソッド
+	 */
+	 public void cartChange(List<QuantityTuple> changeQuantityList) {
+		 try{
+				conn = DriverManager.getConnection(url, user, pass);
+				System.out.println("DB接続完了");
+
+				try{
+					for(QuantityTuple intTuple : changeQuantityList) {
+						PreparedStatement ps = conn.prepareStatement(CHANGECART);
+						ps.setInt(1, intTuple.quantity);
+						ps.setInt(2, intTuple.itemId);
+						int result = ps.executeUpdate();
+						if(result >0) System.out.println("カート内の商品の数量の変更が成功しました。");
+						else System.out.println("カート内の商品の数量を変更が失敗しました。");
+					}
+
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+
+		}catch(SQLException e) {
+				e.printStackTrace();
+				System.out.println("DB接続エラー");
+		}finally {
+			try{
+				if(conn!=null && !conn.isClosed()) {
+				conn.close();
+				System.out.println("DB切断完了");
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	 }
+
 }

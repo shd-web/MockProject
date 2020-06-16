@@ -2,12 +2,16 @@ package dto;
 
 public class ItemsDTO {
 	private int itemId;
-	private int itemName;
+	private String itemName;
 	private int categoryId;
+	private String categoryName;
 	private int colorId;
+	private String colorName;
 	private int price;
-	private int manufacture;
+	private String manufacture;
+	private int stock;
 
+	//商品IDのセッターとゲッター
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
 	}
@@ -16,14 +20,16 @@ public class ItemsDTO {
 		return itemId;
 	}
 
-	public void setItemName(int itemName) {
+	//商品名のセッターとゲッター
+	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
 
-	public int getItemName() {
+	public String getItemName() {
 		return itemName;
 	}
 
+	//カテゴリIDのセッターとゲッター
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
@@ -32,6 +38,16 @@ public class ItemsDTO {
 		return categoryId;
 	}
 
+	//カテゴリ名のセッターとゲッター
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	//色IDのセッターとゲッター
 	public void setColorId(int colorId) {
 		this.colorId = colorId;
 	}
@@ -40,6 +56,16 @@ public class ItemsDTO {
 		return colorId;
 	}
 
+	//色名のセッターとゲッター
+	public void setColorName(String colorName) {
+		this.colorName = colorName;
+	}
+
+	public String getColorName() {
+		return colorName;
+	}
+
+	//値段のセッターとゲッター
 	public void setPrice(int price) {
 		this.price = price;
 	}
@@ -47,12 +73,20 @@ public class ItemsDTO {
 	public int getPrice() {
 		return price;
 	}
-
-	public void setManufacture(int manufacture) {
+	//製造者のセッターとゲッター
+	public void setManufacture(String manufacture) {
 		this.manufacture = manufacture;
 	}
 
-	public int getManufacture() {
+	public String getManufacture() {
 		return manufacture;
+	}
+	//在庫のセッターとゲッター
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public int getStock() {
+		return stock;
 	}
 }
