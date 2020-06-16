@@ -111,7 +111,7 @@
 
 			<td><form action = "/模擬プロジェクト/cartDelete" method = "post">
 					<input type = "submit" value="カートから削除">
-					<input type = "hidden" name = "itemId<%= j%>>" value = "<%= cart.getItemId()%>">
+					<input type = "hidden" name = "itemId" value = "<%= cart.getItemId()%>">
 			</form></td>
 	<%
 

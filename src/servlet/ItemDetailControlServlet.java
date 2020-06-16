@@ -31,7 +31,7 @@ public class ItemDetailControlServlet extends HttpServlet {
 
 		request.setAttribute("itemId", 4);
 
-		String path = "/item_detail.jsp";	//相対パス指定
+		String path = "/WEB-INF/item_detail.jsp";	//相対パス指定
 		//RequestDispatcherオブジェクトの取得
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		//指定したpathにフォワード（転送）

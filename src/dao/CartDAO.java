@@ -34,6 +34,8 @@ public class CartDAO {
 
 	 private static String CHANGECART = "UPDATE cart SET quantity = ? WHERE item_id = ?";
 
+	 private static String INSERTCART= "INSERT INTO cart (item_id, color_id, quantity) VALUES (?, ?, ?)";
+
 	 private Connection conn = null;
 
 
@@ -207,27 +209,28 @@ public class CartDAO {
 	 * カート内の商品の数量を変更するメソッド
 	 */
 	 public void cartChange(List<QuantityTuple> changeQuantityList) {
+
 		 try{
-				conn = DriverManager.getConnection(url, user, pass);
-				System.out.println("DB接続完了");
+			conn = DriverManager.getConnection(url, user, pass);
+			System.out.println("DB接続完了");
 
-				try{
-					for(QuantityTuple intTuple : changeQuantityList) {
-						PreparedStatement ps = conn.prepareStatement(CHANGECART);
-						ps.setInt(1, intTuple.quantity);
-						ps.setInt(2, intTuple.itemId);
-						int result = ps.executeUpdate();
-						if(result >0) System.out.println("カート内の商品の数量の変更が成功しました。");
-						else System.out.println("カート内の商品の数量を変更が失敗しました。");
-					}
-
-				}catch(SQLException e) {
-					e.printStackTrace();
+			try{
+				for(QuantityTuple intTuple : changeQuantityList) {
+					PreparedStatement ps = conn.prepareStatement(CHANGECART);
+					ps.setInt(1, intTuple.quantity);
+					ps.setInt(2, intTuple.itemId);
+					int result = ps.executeUpdate();
+					if(result >0) System.out.println("カート内の商品の数量の変更が成功しました。");
+					else System.out.println("カート内の商品の数量を変更が失敗しました。");
 				}
 
-		}catch(SQLException e) {
+			}catch(SQLException e) {
 				e.printStackTrace();
-				System.out.println("DB接続エラー");
+			}
+
+		}catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println("DB接続エラー");
 		}finally {
 			try{
 				if(conn!=null && !conn.isClosed()) {
@@ -238,6 +241,42 @@ public class CartDAO {
 				e.printStackTrace();
 			}
 		}
+	 }
+
+	 public boolean Insert(int itemId, int colorId, int quantity) {
+		 boolean result = false;
+		 try{
+				conn = DriverManager.getConnection(url, user, pass);
+				System.out.println("DB接続完了");
+
+				try{
+					 PreparedStatement ps = conn.prepareStatement(INSERTCART);
+					 ps.setInt(1, itemId);
+					 ps.setInt(2, colorId);
+					 ps.setInt(3, quantity);
+					 int resultInt = ps.executeUpdate();
+					 if(resultInt >0) result = true;
+
+				 }catch(SQLException e) {
+					 e.printStackTrace();
+				 }
+
+		 }catch(SQLException e) {
+			 e.printStackTrace();
+			 System.out.println("DB接続エラー");
+		 }finally {
+			 try{
+				 if(conn!=null && !conn.isClosed()) {
+					 conn.close();
+					 System.out.println("DB切断完了");
+				 }
+			 }catch(Exception e) {
+				 e.printStackTrace();
+			 }
+		 }
+
+
+		 return result;
 	 }
 
 }
