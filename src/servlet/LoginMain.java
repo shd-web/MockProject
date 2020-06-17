@@ -20,7 +20,7 @@ public class LoginMain extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	String path = "/login_main.jsp";
+    	String path = "/WEB-INF/login_main.jsp";
     	// --↓Debug Print06_03 Add ------
     	System.out.println("doGet;path = " + path);
     	// --↑Debug Print06_03 Add ------

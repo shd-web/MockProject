@@ -55,11 +55,11 @@ public class RegistrationTry extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("account", returnRA);
 
-            RequestDispatcher rd = request.getRequestDispatcher("registration_success.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/registration_success.jsp");
             rd.forward(request, response);
 
         } else {
-            RequestDispatcher rd = request.getRequestDispatcher("registration_error.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/registration_error.jsp");
             rd.forward(request, response);
         }
     }

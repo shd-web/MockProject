@@ -52,11 +52,11 @@ public class AccountCheck extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("account", returnAabb);
 
-            RequestDispatcher rd = request.getRequestDispatcher("delete_success.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/delete_success.jsp");
             rd.forward(request, response);
 
         } else {
-            RequestDispatcher rd = request.getRequestDispatcher("delete_error.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/delete_error.jsp");
             rd.forward(request, response);
         }
     }

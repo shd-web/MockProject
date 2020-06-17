@@ -20,7 +20,7 @@ public class RegistrationControlServlet extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	String path = "registration.jsp";
+    	String path = "/WEB-INF/registration.jsp";
     	// --↓Debug Print06_03 Add ------
     	System.out.println("doGet;path = " + path);
     	// --↑Debug Print06_03 Add ------

@@ -28,7 +28,7 @@ public class MyPageDeleteControlServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	String path = "/delete.jsp";
+    	String path = "/WEB-INF/delete.jsp";
     	// --↓Debug Print06_03 Add ------
     	System.out.println("doGet;path = " + path);
     	// --↑Debug Print06_03 Add ------

@@ -51,11 +51,11 @@ public class AccountSearch extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("account", returnAb);
 
-            RequestDispatcher rd = request.getRequestDispatcher("login_success.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/login_success.jsp");
             rd.forward(request, response);
 
         } else {
-            RequestDispatcher rd = request.getRequestDispatcher("login_error.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/login_error.jsp");
             rd.forward(request, response);
         }
     }

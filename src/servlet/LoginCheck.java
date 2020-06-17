@@ -31,9 +31,9 @@ public class LoginCheck extends HttpServlet {
     	beans.setPass(pass);
     	
     	if(bc.findAccount(beans) != null) {
-    		path = "/login_success.jsp";
+    		path = "/WEB-INF/login_success.jsp";
     	}else {
-    		path = "/login_error.jsp";
+    		path = "/WEB-INF/login_error.jsp";
    
     	}
     	RequestDispatcher rd = request.getRequestDispatcher(path);
