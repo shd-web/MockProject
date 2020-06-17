@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ItemsDAO;
 import dto.ItemsDTO;
 
 /**
@@ -29,26 +30,38 @@ public class ItemSearchResultControlServlet extends HttpServlet {
     }
 
 	/**
+	 * @return
+	 * @return
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+
+		//String keyword = request.getParameter("keyword");
+
+		//itemsテーブルのリストを作成
+		List<ItemsDTO> itemList1 = new ArrayList<ItemsDTO>();
+		ItemsDAO itemsDao = new ItemsDAO();
+
+		//itemList1にitemsDaoで作成したものを代入
+		itemList1 = itemsDao.GetItemsTable();
+
+		System.out.println(itemList1.get(0));
+
+		List<ItemsDTO> itemList2 = new ArrayList<ItemsDTO>();
+
+		for(ItemsDTO item: itemList1) {
+			String str = item.getItemName();
+			if(str.contains("スニーカー")) {
+				itemList2.add(item);
+			}
+		}
+		request.setAttribute("itemList2", itemList2);
+
+
 		String path = "/WEB-INF/item_search_result.jsp" ;
-		List<ItemsDTO> itemList = new ArrayList<ItemsDTO>();
-		ItemsDTO item1 = new ItemsDTO();
-				item1.setItemId(1);
-		ItemsDTO item2 = new ItemsDTO();
-				item2.setColorId(1);
-		ItemsDTO item3 = new ItemsDTO();
-				item3.setManufacture(2);
-		ItemsDTO item4 = new ItemsDTO();
-				item4.setPrice(100);
-		itemList.add(item1);
-		itemList.add(item2);
-		itemList.add(item3);
-		itemList.add(item4);
-		request.setAttribute("myList", itemList);
-		RequestDispatcher rd = request.getRequestDispatcher(path);
+		RequestDispatcher rd=request.getRequestDispatcher(path);
 		rd.forward(request, response);
 	}
 
