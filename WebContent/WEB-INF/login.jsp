@@ -7,14 +7,14 @@
 <title>ログイン画面</title>
 </head>
 <body>
-<form action="login.jsp" method="post">
-ユーザーID：<input type="text" name="loginId" required><br>
+<form action="/模擬プロジェクト/AccountSearch" method="post">
+ID（メールアドレス）：<input type="text" name="id" required><br>
 パスワード：<input type="password" name="pass" required><br>
 <input type="submit" value="ログイン"><br>
 </form>
 <p>
 アカウント登録がお済みでない方はこちらへ↓<br>
-<a href="registration.jsp"><button>新規登録</button></a>
+<a href="/模擬プロジェクト/registration"><button>新規登録</button></a>
 </p>
 </body>
 </html>
