@@ -4,12 +4,7 @@
 /*中身*/
 body{
 	margin-top: 300px;
-	font-family: "Helvetica Neue",
-    Arial,
-    "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans",
-    Meiryo,
-    sans-serif;
+	font-family:serif;
 	background-color: #DCDCDC;
 }
 
@@ -24,7 +19,7 @@ h1{
 
 h2{
 	text-align: center;
-	color: #4169E1;
+	color: #804040;
 	font-weight: bold;
 	padding: 10px;
 	border-top: solid 2px;
@@ -81,54 +76,51 @@ texture:focus {
 
 /*ログインメインボタン*/
 .main-button {
-  display: inline-block;
-  text-decoration: none;
-  background: #8cd460;
-  color: rgba(255, 255, 255, 0.47);
+   display: inline-block;
   font-weight: bold;
-  font-size: 20px;
-  width: 120px;
-  height: 120px;
-  line-height: 100px;
-  border-radius: 50%;
-  text-align: center;
-  overflow: hidden;
-  box-shadow: 0px 0px 0px 5px #8cd460;
-  border: solid 2px rgba(255, 255, 255, 0.47);
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #c0c0c0;
+  background: #673434;
   transition: .4s;
-  margin: 10px;
-  font-size:20px;
-  padding: auto;
+  width: 120px;
+  hight: 120px;
+  margin: 15px;
+  padding: 10px;
+  font-size: 20px;
+  font-family:serif;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .main-button:hover {
-  border-style: dashed;
+ background: #9a4e4e;
+  color: #c0c0c0;
 }
 
 /*ログインメインボタン(長文ver)*/
 .main-button-long {
-  display: inline-block;
-  text-decoration: none;
-  background: #8cd460;
-  color: rgba(255, 255, 255, 0.47);
+	 display: inline-block;
   font-weight: bold;
-  font-size: 15px;
-  width: 200px;
-  height: 120px;
-  line-height: 120px;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0px 0px 0px 5px #8cd460;
-  border: solid 2px rgba(255, 255, 255, 0.47);
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #c0c0c0;
+  background: #673434;
   transition: .4s;
-  margin: 20px 10px;
-  padding: auto;
+  width: 200px;
+  hight: 120px;
+  margin: 15px;
+  padding: 10px;
+  font-size: 20px;
+  font-family:serif;
+  border-radius: 10px;
   text-align: center;
+
 }
 
 .main-button-long:hover {
-  border-style: dashed;
-}
+background: #9a4e4e;
+  color: #c0c0c0;}
 
 
 p{

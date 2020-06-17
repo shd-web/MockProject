@@ -30,6 +30,11 @@ header .headline{
   margin: 0 20px;
 }
 
+.roma{
+	font-size: 25px;
+
+}
+
 
 /*ドロップダウン機能*/
 .nav-list > li {/*親階層のみ幅を25%にする*/
