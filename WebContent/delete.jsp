@@ -11,8 +11,8 @@
 <body>
 <h2>退会</h2>
 <form action="/模擬プロジェクト/AccountCheck" method="post">
-	メールアドレス<input class = "body-input" type="text" name="id"  /><br>
-		　　パスワード<input class = "body-input" type="password" name="password" /><br>
+	メールアドレス：<input class = "body-input" type="text" name="id"  /><br>
+		　　パスワード：<input class = "body-input" type="password" name="password" /><br>
      <input class = "main-button" type="submit" value="削除">
 </form>
 <%
