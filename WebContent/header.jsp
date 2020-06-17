@@ -12,7 +12,7 @@
   </h1>
   <ul class="nav-list">
     <li class="nav-list-item">
-      <a href = "top.jsp">Home</a>
+      <a class = "roma" href = "top.jsp">Home</a>
       <ul>
       	<li><a href = "login.jsp">ログイン</a></li>
       	<li><a href = "registration.jsp">アカウント登録</a></li>
@@ -20,7 +20,7 @@
       </ul>
     </li>
     <li class="nav-list-item">
-	    <a>About</a>
+	    <a class = "roma">About</a>
 	    <ul>
 	      	<li><a href = "#">会社概要</a></li>
 	      	<li><a href = "#">IR情報</a></li>
