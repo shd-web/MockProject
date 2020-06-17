@@ -7,7 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="ForAll.css" type="text/css" />
 </head>
+<%@include file = "header.jsp" %>
 <body>
 <%
 	int itemId = (int)request.getAttribute("itemId");

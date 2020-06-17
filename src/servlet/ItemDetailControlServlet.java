@@ -29,7 +29,11 @@ public class ItemDetailControlServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.setAttribute("itemId", 4);
+		String itemIdString = request.getParameter("itemId");
+		int itemId = 0;
+		if(itemIdString != null) itemId = Integer.parseInt(itemIdString);
+		else System.out.println("itemIdStringはnullです。");
+		request.setAttribute("itemId", itemId);
 
 		String path = "/WEB-INF/item_detail.jsp";	//相対パス指定
 		//RequestDispatcherオブジェクトの取得

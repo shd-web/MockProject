@@ -38,13 +38,16 @@ public class CartControlServlet extends HttpServlet {
 
 		//item_detail.jspのフォームで送られてきた商品ID、数量と色IDをカートテーブルに追加
 		String itemIdString = request.getParameter("itemId");
+		String colorIdString = request.getParameter("colorId");
+		System.out.println("itemIdString: "+itemIdString);
+		System.out.println("colorIdString"+colorIdString);
 
 		CartDAO cartDao = new CartDAO();
-		if(itemIdString != null ) {
+		if(itemIdString != null && colorIdString != null) {
 
 			int itemId = Integer.parseInt(itemIdString);
 			int quantity = Integer.parseInt(request.getParameter("quantity"));
-			int colorId = Integer.parseInt(request.getParameter("colorId"));
+			int colorId = Integer.parseInt(colorIdString);
 			boolean resultInsert = cartDao.Insert(itemId, colorId, quantity);
 		}
 
