@@ -20,7 +20,7 @@
 		out.println(address);
 	%><br><br>
 	<input type = "hidden" name = "address" value = <%= address%>>
-	<input type = "submit" value = "この住所に届ける" ><br>
+	<input class = "btn-square" type = "submit" value = "この住所に届ける" ><br>
 
 	</form>
 

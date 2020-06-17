@@ -26,27 +26,25 @@
 
 
 	<h3>お届け先住所<br></h3>
-	<h5><%= session.getAttribute("accountName")%><br>
-	<%= address%><br><br></h5>
+	<p><%= session.getAttribute("accountName")%><br>
+	<%= address%><br><br></p>
 
 	<h3>支払方法<br></h3>
-	<h6>代金引換<br><br></h6>
+	<h5>代金引換<br><br></h5>
 
 
 	<h3>商品情報<br></h3>
-	<h6>
+	<h5>
 	<%
 	List<CartDTO> cartList = (List<CartDTO>) session.getAttribute("cartList");
-	for(CartDTO cart : cartList){
-		out.println(cart.getItemName());
-		out.println(cart.getColorName());
-		out.println(cart.getManufacturer());
-		out.println(cart.getPrice());
-		out.println(cart.getQuantity());
-		out.println("<br>");
-	}
-
-	%></h6>
+	for(CartDTO cart : cartList){%>
+		<%= cart.getItemName()%>
+		<%= cart.getColorName()%>
+		<%= cart.getManufacturer()%>
+		￥<%= cart.getPrice() %>
+		数量：<%= cart.getQuantity()%>
+		<br>
+	<%}	%></h5>
 
 	<h3>配送方法<br></h3>
 	<h5><%= shipping%><br><br></h5>

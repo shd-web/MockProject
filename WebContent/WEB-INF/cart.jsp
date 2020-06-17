@@ -30,11 +30,11 @@
 
 
 	%>
-	<h1>ショッピングカート</h1>
+	<h2>ショッピングカート</h2>
 
 
 
-	<form name = "form1" action = "/模擬プロジェクト/purchase">
+
 	<table border = "1">
 
 		<tr bgcolor = "white">
@@ -57,7 +57,7 @@
 			<td><%=cart.getManufacturer() %></td>
 			<td><%=cart.getPrice() %>円</td>
 			<td>
-					<select name = "quantity" id="quantity" onclick = "handleBtnClick(event)">
+					<select name = "quantity" id="quantity" onclick = "handleBtnClick(event)" form = "form1">
 			<%
 				j++;
 				for(int i = 1; i <= 20; i++){
@@ -70,7 +70,7 @@
 			   	}
 			%>
 					</select>
-					<input type = "hidden" name = "itemId<%= j%>" value = "<%= cart.getItemId()%>">
+					<input type = "hidden" name = "itemId<%= j%>" value = "<%= cart.getItemId()%>" form = "form1">
 
 			<script type="text/javascript">
 			function handleBtnClick(event){
@@ -110,7 +110,7 @@
 			%></td>
 
 			<td><form action = "/模擬プロジェクト/cartDelete" method = "post">
-					<input type = "submit" value="カートから削除">
+					<input class = "btn-square-small" type = "submit" value="カートから削除">
 					<input type = "hidden" name = "itemId" value = "<%= cart.getItemId()%>">
 			</form></td>
 	<%
@@ -122,9 +122,9 @@
 
 
 	合計　<%=sum %>円
-
+	<form name = "form1"id = "form1" action = "/模擬プロジェクト/purchase">
 		<input type = "hidden" name = "numOfItems" value = "<%= j%>">
-		<input type = "submit" value = "レジに進む">
+		<input class = "btn-square-small" type = "submit" value = "レジに進む">
 	</form><br>
 	<%
 		}
