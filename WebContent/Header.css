@@ -10,6 +10,7 @@ header {
   position: fixed;
   top: 0px;
   padding-bottom: 10px;
+  font-family:serif;
 }
 
 
@@ -21,8 +22,8 @@ header .headline{
   text-align: center;
   padding: 10px 0;
   margin: 0 auto;
-  font-family: "Helvetica Neue";
-}
+  font-family:serif;
+  }
 .nav-list-item {
   list-style: none;
   display: inline-block;
@@ -71,6 +72,7 @@ header .headline{
 	height: 30px;
 	text-size: 20px;
 	border-radius: 5px;
+    font-family:serif;
 }
 
 
@@ -78,19 +80,22 @@ header .headline{
 /*遷移ボタン*/
 .header-btn-square {
   display: inline-block;
-  text-decoration: none;
-  color: #FFF;
-  background: #8cd460;
-  transition: .4s;
   font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #c0c0c0;
+  background: #673434;
+  transition: .4s;
+  width: 95px;
+  hight: 30px;
+  margin: auto;
+  padding: 5px;
   font-size: 15px;
-  width: 100px;
-  height: 40px;
-  text-align: center;
-  padding: auto;
+  font-family:serif;
   border-radius: 5px;
 }
 
-.btn-squaret:hover {
-  background-image: linear-gradient(#6795fd 0%, #67ceff 70%);
+.header-btn-square:hover {
+  background: #9a4e4e;
+  color: #c0c0c0;
 }
