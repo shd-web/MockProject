@@ -29,10 +29,16 @@
 			<td>ショッキングピンク</td>
 			<td>ABAマート</td>
 			<td>50000円</td>
-			<td><form><select name="quantity">
-				<option value = "1" selected>1</option>
-
-				</select></form></td>
+			<td>
+			<form>
+			<div class = "cp_ipselect_mini">
+			<select class = "cp_sl06_mini" name="quantity">
+					<option value = "1" selected>1</option>
+			</select>
+			<span class="cp_sl06_highlight_mini"></span>
+			<span class="cp_sl06_selectbar_mini"></span>
+			</div>
+			</form></td>
 			<td>〇</td>
 			<td><form><input class = "btn-square-small" type = "submit" value="カートから削除"></form></td>
 
@@ -42,10 +48,14 @@
 			<td>ショッキングブルー</td>
 			<td>シューズ流通センター</td>
 			<td>500円</td>
-			<td><form><select name="quantity">
-				<option value = "1" selected>1</option>
-
-				</select></form></td>
+			<td><form>
+			<div class = "cp_ipselect_mini">
+			<select class = "cp_sl06_mini" name="quantity">
+					<option value = "1" selected>1</option>
+			</select>
+			<span class="cp_sl06_highlight_mini"></span>
+			<span class="cp_sl06_selectbar_mini"></span>
+			</div></form></td>
 			<td>〇</td>
 			<td><form><input class = "btn-square-small" type = "submit" value="カートから削除"></form></td>
 
