@@ -14,9 +14,8 @@
     <li class="nav-list-item">
       <a class = "roma" href = "top.jsp">Home</a>
       <ul>
-      	<li><a href = "login.jsp">ログイン</a></li>
-      	<li><a href = "registration.jsp">アカウント登録</a></li>
-      	<li><a href = "delete.jsp">退会</a></li>
+      	<li><a href = "login.jsp">マイページ</a></li>
+      	<li><a href = "top.jsp">ログアウト</a></li>
       </ul>
     </li>
     <li class="nav-list-item">

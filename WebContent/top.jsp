@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>トップ画面</title>
 </head>
-<%@include file = "header.jsp" %>
+<%@include file = "open_header.jsp" %>
 <body>
 <div>
 <h2>あえて靴と帽子だけ売っています。</h2>
