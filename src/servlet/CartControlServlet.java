@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.CartDAO;
 import dto.CartDTO;
+import util.QuantityTuple;
 
 /**
  * Servlet implementation class CartControlServlet
@@ -39,8 +40,6 @@ public class CartControlServlet extends HttpServlet {
 		//item_detail.jspのフォームで送られてきた商品ID、数量と色IDをカートテーブルに追加
 		String itemIdString = request.getParameter("itemId");
 		String colorIdString = request.getParameter("colorId");
-		System.out.println("itemIdString: "+itemIdString);
-		System.out.println("colorIdString"+colorIdString);
 
 		CartDAO cartDao = new CartDAO();
 		if(itemIdString != null && colorIdString != null) {
@@ -48,7 +47,16 @@ public class CartControlServlet extends HttpServlet {
 			int itemId = Integer.parseInt(itemIdString);
 			int quantity = Integer.parseInt(request.getParameter("quantity"));
 			int colorId = Integer.parseInt(colorIdString);
-			boolean resultInsert = cartDao.Insert(itemId, colorId, quantity);
+			boolean doesContain = cartDao.doesContain(itemId);
+			System.out.println("doesContain in cart: "+ doesContain);
+			if(!doesContain) { //カートに同じ商品がなかったら新規追加
+				boolean resultInsert = cartDao.Insert(itemId, colorId, quantity);
+			}else { //カートに同じ商品があったら数量変更
+				QuantityTuple quantityTuple = new QuantityTuple();
+				quantityTuple.itemId = itemId;
+				quantityTuple.quantity = quantity;
+				cartDao.addCartQuantity(quantityTuple);
+			}
 		}
 
 

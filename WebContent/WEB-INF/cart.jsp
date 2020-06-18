@@ -11,6 +11,8 @@
 </head>
 <%@include file = "header.jsp" %>
 <body>
+
+<h2>ショッピングカート</h2>
 	<%
 		//カートに商品がないとき
 		if((int)session.getAttribute("countCart") == 0){
@@ -30,12 +32,12 @@
 
 
 	%>
-	<h2>ショッピングカート</h2>
 
 
 
 
-	<table border = "1">
+
+	<table>
 
 		<tr bgcolor = "white">
 			<th>商品名</th>
@@ -52,12 +54,13 @@
 
 	%>
 		<tr>
-			<td><%=cart.getItemName() %></td>
+			<td class = table><%=cart.getItemName() %></td>
 			<td><%=cart.getColorName() %></td>
 			<td><%=cart.getManufacturer() %></td>
 			<td><%=cart.getPrice() %>円</td>
 			<td>
-					<select name = "quantity" id="quantity" onclick = "handleBtnClick(event)" form = "form1">
+				<div class = "cp_ipselect_mini">
+					<select class = "cp_s106_mini" name = "quantity" id="quantity" onclick = "handleBtnClick(event)" form = "form1">
 			<%
 				j++;
 				for(int i = 1; i <= 20; i++){
@@ -70,6 +73,9 @@
 			   	}
 			%>
 					</select>
+					<span class = "cp_s106_highlight_mini"></span>
+					<span class = "cp_s106_selectbar_mini"></span>
+					</div>
 					<input type = "hidden" name = "itemId<%= j%>" value = "<%= cart.getItemId()%>" form = "form1">
 
 			<script type="text/javascript">

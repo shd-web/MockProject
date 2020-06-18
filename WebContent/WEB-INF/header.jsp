@@ -27,8 +27,13 @@
 	      	<li><a href = "#">採用情報</a></li>
       </ul></li>
     <li class="nav-list-item">
-		<form class = "search" action = "item_search_result.jsp" method = "post">
-				<input class = "header-input" type = "text" name = "address" placeholder = "キーワード">
+		<form class = "search" action = "/模擬プロジェクト/itemSearchResult" method = "post">
+				<select name = "category">
+					<option value = "すべて">すべて</option>
+					<option value = "靴">靴</option>
+					<option value = "帽子">帽子</option>
+				</select>
+				<input class = "header-input" type = "text" name = "keyword" placeholder = "キーワード">
 				<input class = "header-btn-square" type = "submit" value = "検索">
       		</form>
       </li>

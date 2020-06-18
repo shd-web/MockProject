@@ -32,9 +32,14 @@ public class CartDAO {
 	 private static String DELETECARTALL =
 			 "DELETE FROM cart;";
 
-	 private static String CHANGECART = "UPDATE cart SET quantity = ? WHERE item_id = ?";
+	 private static String CHANGECARTQUANTITY = "UPDATE cart SET quantity = ? WHERE item_id = ?";
 
 	 private static String INSERTCART= "INSERT INTO cart (item_id, color_id, quantity) VALUES (?, ?, ?)";
+
+	 private static String GETCARTITEMID =
+			 "SELECT count(*) FROM items WHERE item_id = ?";
+
+	 private static String ADDCARTQUANTITY = "UPDATE cart SET quantity = quantity + ? WHERE item_id = ?";
 
 	 private Connection conn = null;
 
@@ -205,7 +210,7 @@ public class CartDAO {
 		}
 	 }
 
-	/**
+	/*
 	 * カート内の商品の数量を変更するメソッド
 	 */
 	 public void cartChange(List<QuantityTuple> changeQuantityList) {
@@ -216,11 +221,11 @@ public class CartDAO {
 
 			try{
 				for(QuantityTuple intTuple : changeQuantityList) {
-					PreparedStatement ps = conn.prepareStatement(CHANGECART);
+					PreparedStatement ps = conn.prepareStatement(CHANGECARTQUANTITY);
 					ps.setInt(1, intTuple.quantity);
 					ps.setInt(2, intTuple.itemId);
 					int result = ps.executeUpdate();
-					if(result >0) System.out.println("カート内の商品の数量の変更が成功しました。");
+					if(result > 0) System.out.println("カート内の商品の数量の変更が成功しました。");
 					else System.out.println("カート内の商品の数量を変更が失敗しました。");
 				}
 
@@ -243,7 +248,44 @@ public class CartDAO {
 		}
 	 }
 
+
+	 public void addCartQuantity(QuantityTuple quantityTuple) {
+
+		 try{
+			conn = DriverManager.getConnection(url, user, pass);
+			System.out.println("DB接続完了");
+
+			try{
+					PreparedStatement ps = conn.prepareStatement(ADDCARTQUANTITY);
+					ps.setInt(1, quantityTuple.quantity);
+					ps.setInt(2, quantityTuple.itemId);
+					int result = ps.executeUpdate();
+					if(result > 0) System.out.println("カート内の商品の数量を追加しました。");
+					else System.out.println("カート内の商品の数量の追加が失敗しました。");
+
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+
+		}catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println("DB接続エラー");
+		}finally {
+			try{
+				if(conn!=null && !conn.isClosed()) {
+				conn.close();
+				System.out.println("DB切断完了");
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	 }
+
+
+
 	 public boolean Insert(int itemId, int colorId, int quantity) {
+
 		 boolean result = false;
 		 try{
 				conn = DriverManager.getConnection(url, user, pass);
@@ -255,7 +297,7 @@ public class CartDAO {
 					 ps.setInt(2, colorId);
 					 ps.setInt(3, quantity);
 					 int resultInt = ps.executeUpdate();
-					 if(resultInt >0) result = true;
+					 if(resultInt > 0) result = true;
 
 				 }catch(SQLException e) {
 					 e.printStackTrace();
@@ -277,6 +319,49 @@ public class CartDAO {
 
 
 		 return result;
+	 }
+
+	 /*
+	  * カートテーブル同じ商品IDの商品があるかを確認するメソッド
+	  */
+	 public boolean doesContain(int itemId){
+
+		 boolean doesContain = false;
+
+		 try{
+				conn = DriverManager.getConnection(url, user, pass);
+				System.out.println("DB接続完了");
+
+				try{
+					 PreparedStatement ps = conn.prepareStatement(GETCARTITEMID);
+					 ps.setInt(1, itemId);
+					 ResultSet rs = ps.executeQuery();
+					 int count = -1;
+					 if(rs.next()) {
+						 count = rs.getInt(1);
+					 }
+					 if(count > 0) doesContain = true;
+					 else doesContain = false;
+
+				 }catch(SQLException e) {
+					 e.printStackTrace();
+				 }
+
+
+		 }catch(SQLException e) {
+			 e.printStackTrace();
+			 System.out.println("DB接続エラー");
+		 }finally {
+			 try{
+				 if(conn!=null && !conn.isClosed()) {
+					 conn.close();
+					 System.out.println("DB切断完了");
+				 }
+			 }catch(Exception e) {
+				 e.printStackTrace();
+			 }
+		 }
+		 return doesContain;
 	 }
 
 }
