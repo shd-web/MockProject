@@ -111,7 +111,7 @@ h3{
 
 
 body{
-	margin-top: 210px;
+	margin-top: 270px;
 	font-family: "Helvetica Neue",
     Arial,
     "Hiragino Kaku Gothic ProN",
@@ -123,5 +123,5 @@ body{
 
 div{
 	height: 600px;
-	background-image: url(./shoes.jpg);
+	background-image: url(./bag.jpg);
 }

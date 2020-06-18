@@ -3,10 +3,14 @@
 
 /*中身*/
 body{
-	margin-top: 270px;
+	margin-top: 280px;
 	font-family:serif;
 	background-color: #DCDCDC;
 	text-align: center;
+}
+
+html body{
+	height: 100%;
 }
 
 
