@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+
+/*中身*/
+body{
+	margin-top: 300px;
+	font-family:serif;
+	background-color: #DCDCDC;
+}
+
+
+h1{
+	text-align: center;
+	margin: 50px;
+	font-size: 70px;
+
+}
+
+
+h2{
+	text-align: center;
+	color: #804040;
+	font-weight: bold;
+	padding: 10px;
+	border-top: solid 2px;
+	border-bottom: solid 2px;
+}
+
+h3{
+	text-align: center;
+	font-size:50px;
+}
+
+
+
+.main{
+  text-align: center;
+}
+
+
+form{
+	text-align: center;
+}
+
+.body-input{
+	margin: 5px 10px;
+	padding: 0.5em;
+    outline: none;
+    border: 1px solid #DDD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 20px;
+    width: 400px;
+    height: 20px;
+	border-radius: 10px;
+}
+
+
+input[type="text"]:focus,
+texture:focus {
+    box-shadow: 0 0 7px #3498db;
+    border: 1px solid #3498db;
+}
+
+input[type="password"]:focus,
+texture:focus {
+    box-shadow: 0 0 7px #3498db;
+    border: 1px solid #3498db;
+}
+
+
+.button-area{
+	text-align: center;
+}
+
+/*ログインメインボタン*/
+.main-button {
+   display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #c0c0c0;
+  background: #673434;
+  transition: .4s;
+  width: 120px;
+  hight: 120px;
+  margin: 15px;
+  padding: 10px;
+  font-size: 20px;
+  font-family:serif;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.main-button:hover {
+ background: #9a4e4e;
+  color: #c0c0c0;
+}
+
+/*ログインメインボタン(長文ver)*/
+.main-button-long {
+	 display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #c0c0c0;
+  background: #673434;
+  transition: .4s;
+  width: 200px;
+  hight: 120px;
+  margin: 15px;
+  padding: 10px;
+  font-size: 20px;
+  font-family:serif;
+  border-radius: 10px;
+  text-align: center;
+
+}
+
+.main-button-long:hover {
+background: #9a4e4e;
+  color: #c0c0c0;}
+
+
+p{
+	text-align: center;
+
+}
+
+
+
+/*ラジオボタン*/
+.radio-input{
+	display: none;
+}
+
+.radio-input + label{
+  padding-left: 20px;
+  position:relative;
+  margin-right: 20px;
+}
+.radio-input + label::before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.radio-input:checked + label{
+  color: #d01137;
+}
+.radio-input:checked + label::after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 11px;
+  height: 11px;
+  background: #d01137;
+  border-radius: 50%;
+}
+
+
+

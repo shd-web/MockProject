@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ユーザ削除</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/login.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Account.css">
 </head>
 <body>
 <h1>ユーザ削除</h1>

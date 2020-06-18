@@ -7,6 +7,7 @@
 %>
 <html>
 <head>
+<link rel = "styleseet" type = "text/css" href = "${pageContext.request.contextPath}/Account.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
