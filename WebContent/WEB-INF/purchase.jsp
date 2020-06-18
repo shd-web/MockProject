@@ -15,15 +15,12 @@
 	<hr><h2>登録されている住所へ配送</h2>
 	<form action = "/模擬プロジェクト/shipping" method="post">
 
-	<%
-		//DBに登録されているアカウント名と住所表示
-		AccountsBeans ab = (AccountsBeans)session.getAttribute("account");
-		String name = ab.getName();
-		String address = ab.getAddress();
+	 <%
+	 	AccountsBeans ab1= (AccountsBeans)session.getAttribute("account");
+		String address = ab1.getAddress();
 	%>
 		<p><%= name%><br>
 		<%= address%></p>
-	<input type = "hidden" name = "name" value = <%= name%>>
 	<input type = "hidden" name = "address" value = <%= address%>>
 	<input class = "btn-square" type = "submit" value = "この住所に届ける" ><br>
 

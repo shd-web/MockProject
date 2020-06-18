@@ -15,7 +15,6 @@
 <body>
 	<%
 		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("name");
 		String address = request.getParameter("address");
 		String shipping = request.getParameter("shipping");
 	%>
@@ -29,9 +28,9 @@
 	<h3>お届け先住所<br></h3>
 	<%
 		//DBに登録されているアカウント名表示
-		AccountsBeans ab = (AccountsBeans)session.getAttribute("account");
-		String nameSession = ab.getName();
-		String addressSession = ab.getAddress();
+		AccountsBeans ab2 = (AccountsBeans)session.getAttribute("account");
+		String nameSession = ab2.getName();
+		String addressSession = ab2.getAddress();
 	%>
 	<p><%= nameSession%><br>
 	<%= address%></p>
