@@ -48,7 +48,6 @@ public class CartControlServlet extends HttpServlet {
 			int quantity = Integer.parseInt(request.getParameter("quantity"));
 			int colorId = Integer.parseInt(colorIdString);
 			boolean doesContain = cartDao.doesContain(itemId);
-			System.out.println("doesContain in cart: "+ doesContain);
 			if(!doesContain) { //カートに同じ商品がなかったら新規追加
 				boolean resultInsert = cartDao.Insert(itemId, colorId, quantity);
 			}else { //カートに同じ商品があったら数量変更

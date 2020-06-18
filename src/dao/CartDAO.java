@@ -27,19 +27,19 @@ public class CartDAO {
 
 	 private static String COUNTCART = "SELECT COUNT(*) FROM cart;";
 
-	 private static String DELETEFROMCART = "DELETE FROM cart WHERE item_id = ?";
+	 private static String DELETEFROMCART = "DELETE FROM cart WHERE item_id = ?;";
 
 	 private static String DELETECARTALL =
 			 "DELETE FROM cart;";
 
-	 private static String CHANGECARTQUANTITY = "UPDATE cart SET quantity = ? WHERE item_id = ?";
+	 private static String CHANGECARTQUANTITY = "UPDATE cart SET quantity = ? WHERE item_id = ?;";
 
-	 private static String INSERTCART= "INSERT INTO cart (item_id, color_id, quantity) VALUES (?, ?, ?)";
+	 private static String INSERTCART= "INSERT INTO cart (item_id, color_id, quantity) VALUES (?, ?, ?);";
 
 	 private static String GETCARTITEMID =
-			 "SELECT count(*) FROM items WHERE item_id = ?";
+			 "SELECT count(*) FROM cart WHERE item_id = ?;";
 
-	 private static String ADDCARTQUANTITY = "UPDATE cart SET quantity = quantity + ? WHERE item_id = ?";
+	 private static String ADDCARTQUANTITY = "UPDATE cart SET quantity = quantity + ? WHERE item_id = ?;";
 
 	 private Connection conn = null;
 
@@ -333,7 +333,7 @@ public class CartDAO {
 				System.out.println("DB接続完了");
 
 				try{
-					 PreparedStatement ps = conn.prepareStatement(GETCARTITEMID);
+					PreparedStatement ps = conn.prepareStatement(GETCARTITEMID);
 					 ps.setInt(1, itemId);
 					 ResultSet rs = ps.executeQuery();
 					 int count = -1;
