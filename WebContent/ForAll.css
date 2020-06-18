@@ -3,7 +3,7 @@
 
 /*中身*/
 body{
-	margin-top: 260px;
+	margin-top: 270px;
 	font-family:serif;
 	background-color: #DCDCDC;
 	text-align: center;
@@ -20,11 +20,20 @@ body{
 
 
 h2{
+	font-size: 35px;
 	color: #804040;
 	font-weight: bold;
 	padding: 10px;
 	border-top: solid 2px;
 	border-bottom: solid 2px;
+}
+
+
+h3{
+	font-size: 27px;
+	color: #804040;
+	font-weight: bold;
+	padding: 10px;
 }
 
 

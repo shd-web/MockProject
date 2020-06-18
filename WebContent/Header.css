@@ -104,3 +104,8 @@ header .headline{
   background: #9a4e4e;
   color: #c0c0c0;
 }
+
+h6{
+	text-align: right;
+	margin: 10px;
+}
