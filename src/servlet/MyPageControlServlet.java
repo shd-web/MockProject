@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import JavaBeans.AccountsBeans;
 import dao.AccountsDAO;
@@ -29,7 +28,7 @@ import dao.AccountsDAO;
 	     */
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	        // TODO Auto-generated method stub
-	    	String path = "/my_page.jsp";
+	    	String path = "/WEB-INF/my_page.jsp";
 	    	// --↓Debug Print06_03 Add ------
 	    	System.out.println("doGet;path = " + path);
 	    	// --↑Debug Print06_03 Add ------
@@ -43,29 +42,24 @@ import dao.AccountsDAO;
 	     */
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	        // TODO Auto-generated method stub
-	        String name = request.getParameter("name");
+	        String id = request.getParameter("id");
 	        String pass = request.getParameter("pass");
 	        System.out.println(1);
 	        // login.jspから受け取ったログインIDとpassをビーンズにセット
 	        AccountsBeans ab = new AccountsBeans();
-	        ab.setName(name);
+	        ab.setId(id);
 	        ab.setPass(pass);
 
 	        // アカウントの有無を検索
 	        // 検索したアカウント情報を取得
 	        AccountsDAO ad = new AccountsDAO();
 	        AccountsBeans returnAb = ad.findAccount(ab);
-	        System.out.println(2);
 	        if(returnAb != null) {
 	            // セッションにアカウント情報＆ロールを登録
-	            HttpSession session = request.getSession();
-	            session.setAttribute("account", returnAb);
-
-	            RequestDispatcher rd = request.getRequestDispatcher("loginSuccess.jsp");
-	            rd.forward(request, response);
-
+	            System.out.println("MyAccountCheck実行");
 	        } else {
-	            RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+	        	System.out.println("エラー");
+	            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/login_error.jsp");
 	            rd.forward(request, response);
 	        }
 	    }
