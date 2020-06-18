@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import = "JavaBeans.AccountsBeans"%>
  <!DOCTYPE html>
  <html>
  <head>
@@ -7,7 +8,11 @@
 <meta charset="UTF-8">
 </head>
  <header>
-  <h6>ようこそhiroさん</h6>
+ <%
+ 	AccountsBeans ab= (AccountsBeans)session.getAttribute("account");
+	String name = ab.getName();
+ %>
+  <h6>ようこそ<%= name%>さん</h6>
   <h1 class="headline">
     <a>THE DSK</a>
   </h1>
