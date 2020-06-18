@@ -3,11 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="./Account.css">
 <meta charset="UTF-8">
 <title>ログイン成功</title>
 </head>
+<%@ include file = "header.jsp" %>
 <body>
-ログインが成功しました!
-<p><a href="/itemSearch"><button type="button" name="aaa" >トップページへ</button></a></p>
+<h3>ログインが成功しました!</h3>
+<p><a href="/itemSearch"><button class = "main-button" type="button" name="aaa" >トップページへ</button></a></p>
 </body>
+<%@ include file = "footer.jsp" %>
 </html>
