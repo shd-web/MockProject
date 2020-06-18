@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 </head>
  <header>
+  <h6>ようこそhiroさん</h6>
   <h1 class="headline">
     <a>THE DSK</a>
   </h1>
