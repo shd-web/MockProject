@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "JavaBeans.AccountsBeans"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,18 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="ForAll.css" type="text/css" />
 </head>
-<%@include file = "header.jsp" %>
+<%
+	AccountsBeans ab = (AccountsBeans)session.getAttribute("account");
+	if(ab != null){
+%>
+<%@include file = "open_header.jsp" %>
+<% }else{%>
+
+	<%@include file = "header.jsp" %>
+<%
+		System.out.println(ab.getPass());
+	}
+	%>
 <body>
 
 	<form action = "/模擬プロジェクト/itemSearchResult" method = "post">
