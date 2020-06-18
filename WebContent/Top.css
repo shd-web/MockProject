@@ -4,29 +4,26 @@ h2{
 	font-size: 70px;
 	text-align: center;
 	color: white;
-	text-shadow:1px 2px 3px black;
+	text-shadow:3px 4px 5px black;
 }
 
 h3{
 	text-align: center;
 	font-size: 30px;
 	color: white;
-	text-shadow:1px 2px 3px black;
+	text-shadow:3px 4px 5px black;
 }
 
 
 body{
 	margin-top: 210px;
-	font-family: "Helvetica Neue",
-    Arial,
-    "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans",
-    Meiryo,
-    sans-serif;
+    font-family:serif;
 	background-color: #DCDCDC;
+	height: 1000%;
 }
 
 div{
 	height: 600px;
-	background-image: url(./shoes.jpg);
+	background-image: url(./bag.jpg);
+
 }
