@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 </head>
  <header>
-  <h6>ようこそhiroさん</h6>
   <h1 class="headline">
     <a>THE DSK</a>
   </h1>
@@ -15,8 +14,9 @@
     <li class="nav-list-item">
       <a class = "roma" href = "top.jsp">Home</a>
       <ul>
-      	<li><a href = "/模擬プロジェクト//myPage">マイページ</a></li>
-      	<li><a href = "/模擬プロジェクト/top">ログアウト</a></li>
+      	<li><a href = "/模擬プロジェクト/login">ログイン</a></li>
+      	<li><a href = "/模擬プロジェクト/registration">アカウント登録</a></li>
+      	<li><a href = "/模擬プロジェクト/delete">退会</a></li>
       </ul>
     </li>
     <li class="nav-list-item">
@@ -27,10 +27,11 @@
 	      	<li><a href = "#">採用情報</a></li>
       </ul></li>
     <li class="nav-list-item">
-		<form class = "search" action = "item_search_result.jsp" method = "post">
-				<input class = "header-input" type = "text" name = "address" placeholder = "キーワード">
-				<input class = "header-btn-square" type = "submit" value = "検索">
-      		</form>
+		<a class = "roma">Contact us</a>
+		<ul>
+	      	<li><a href = "#">メール</a></li>
+	      	<li><a href = "#">お電話</a></li>
+      </ul>
       </li>
 
   </ul>

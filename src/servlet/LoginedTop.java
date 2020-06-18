@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ItemSearch
+ * Servlet implementation class LoginedTop
  */
-@WebServlet(urlPatterns = {"/itemSearch"})
-public class ItemSearchControlServlet extends HttpServlet {
+@WebServlet(urlPatterns= {"/loginedTop"})
+public class LoginedTop extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ItemSearchControlServlet() {
+    public LoginedTop() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,9 @@ public class ItemSearchControlServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/item_search.jsp";	//相対パス指定
+
+		//相対パス指定
+		String path = "/WEB-INF/logined_top.jsp";
 		//RequestDispatcherオブジェクトの取得
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		//指定したpathにフォワード（転送）
