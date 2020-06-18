@@ -15,7 +15,7 @@
     <li class="nav-list-item">
       <a class = "roma" href = "top.jsp">Home</a>
       <ul>
-      	<li><a href = "login.jsp">マイページ</a></li>
+      	<li><a href = "mymage_detail.jsp">マイページ</a></li>
       	<li><a href = "top.jsp">ログアウト</a></li>
       </ul>
     </li>
