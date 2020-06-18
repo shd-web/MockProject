@@ -13,9 +13,10 @@
   </h1>
   <ul class="nav-list">
     <li class="nav-list-item">
-      <a class = "roma" href = "top.jsp">Home</a>
+      <a class = "roma" href = "/模擬プロジェクト/loginedTop">Home</a>
       <ul>
-      	<li><a href = "/模擬プロジェクト//myPage">マイページ</a></li>
+      	<li><a href = "/模擬プロジェクト/myPage">マイページ</a></li>
+      	<li><a href = "/模擬プロジェクト/cart">カート</a></li>
       	<li><a href = "/模擬プロジェクト/top">ログアウト</a></li>
       </ul>
     </li>
@@ -27,8 +28,8 @@
 	      	<li><a href = "#">採用情報</a></li>
       </ul></li>
     <li class="nav-list-item">
-		<form class = "search" action = "item_search_result.jsp" method = "post">
-				<input class = "header-input" type = "text" name = "address" placeholder = "キーワード">
+		<form class = "search" action = "/模擬プロジェクト/itemSearchResult" method = "post">
+				<input class = "header-input" type = "text" name = "keyword" placeholder = "キーワード">
 				<input class = "header-btn-square" type = "submit" value = "検索">
       		</form>
       </li>

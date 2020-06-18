@@ -11,6 +11,7 @@
 </head>
 <%@include file = "header.jsp" %>
 <body>
+<h2>商品詳細</h2><hr>
 <%
 	int itemId = (int)request.getAttribute("itemId");
 	ItemsDTO itemsDto = new ItemsDTO();
@@ -18,14 +19,17 @@
 	itemsDto = itemsDao.getItemDetail(itemId);
 
 %>
-	<%= itemId%><br>
-	<%= itemsDto.getItemName()%><br>
-	<%= itemsDto.getCategoryName()%><br>
-	<%= itemsDto.getColorName()%><br>
-	<%= itemsDto.getManufacture()%><br>
-	<%= itemsDto.getPrice()%><br>
-	<%= itemsDto.getStock()%><br><br>
-
+	<table>
+	<tr bgcolor = "white"><th>商品ID</th><th>商品名</th><th>カテゴリー名</th><th>色</th><th>製造者</th><th>価格</th><th>在庫</th></tr>
+	<tr><td><%= itemId%></td>
+	<td class = table><%= itemsDto.getItemName()%></td>
+	<td><%= itemsDto.getCategoryName()%></td>
+	<td><%= itemsDto.getColorName()%></td>
+	<td><%= itemsDto.getManufacture()%></td>
+	<td><%= itemsDto.getPrice()%></td>
+	<td><%= itemsDto.getStock()%></td>
+	</tr>
+	</table>
 	<form action = "/模擬プロジェクト/cart" method = "post">
 	数量：
 	<select name = "quantity">

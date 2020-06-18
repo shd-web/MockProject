@@ -5,7 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>新規登録</title>
+<link rel="stylesheet" href="ForAll.css" type="text/css" />
 </head>
+<%@include file = "open_header.jsp" %>
 <body>
 <form action="/模擬プロジェクト/RegistrationTry" method="post">
 <p>すべて入力してください</p>
@@ -16,5 +18,6 @@
 メールアドレス（ID)：<input type="text" name="id" required><br>
 <input type="submit" value="登録"><br>
 </form>
+<%@include file = "footer.jsp" %>
 </body>
 </html>

@@ -8,18 +8,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="ForAll.css" type="text/css" />
 </head>
-<%
-	AccountsBeans ab = (AccountsBeans)session.getAttribute("account");
-	if(ab != null){
-%>
-<%@include file = "open_header.jsp" %>
-<% }else{%>
 
-	<%@include file = "header.jsp" %>
-<%
-		System.out.println(ab.getPass());
-	}
-	%>
+<%@include file = "header.jsp" %>
+
 <body>
 
 	<form action = "/模擬プロジェクト/itemSearchResult" method = "post">

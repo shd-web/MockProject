@@ -33,7 +33,7 @@ public class AccountCheck extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
     	response.setContentType("text/html;charset=UTF-8");
-    	System.out.println("AccountCheck");
+
     	String id = request.getParameter("id");
         String pass = request.getParameter("pass");
 
@@ -47,10 +47,11 @@ public class AccountCheck extends HttpServlet {
         AccountDeleteDAO ad = new AccountDeleteDAO();
         AccountsBeans returnAabb = ad.deleteAccount(aabb);
 
-        if(returnAabb != null) {
+        if(returnAabb.getId() != null) {
             // セッションにアカウント情報＆ロールを登録
             HttpSession session = request.getSession();
             session.setAttribute("account", returnAabb);
+
 
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/delete_success.jsp");
             rd.forward(request, response);

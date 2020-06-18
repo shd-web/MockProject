@@ -29,9 +29,10 @@ public class ShippingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
 		String address = request.getParameter("address");
-		request.setAttribute("address", request.getParameter("address"));
+		if( address != null) {
+			request.setAttribute("address", address);
+		}
 		String path = "/WEB-INF/shipping.jsp";	//相対パス指定
 		//RequestDispatcherオブジェクトの取得
 		RequestDispatcher rd = request.getRequestDispatcher(path);

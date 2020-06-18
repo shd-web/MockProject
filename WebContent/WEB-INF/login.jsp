@@ -5,7 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン画面</title>
+<link rel="stylesheet" href="ForAll.css" type="text/css" />
 </head>
+<%@include file = "open_header.jsp" %>
 <body>
 <form action="/模擬プロジェクト/AccountSearch" method="post">
 ID（メールアドレス）：<input type="text" name="id" required><br>
@@ -17,4 +19,5 @@ ID（メールアドレス）：<input type="text" name="id" required><br>
 <a href="/模擬プロジェクト/registration"><button>新規登録</button></a>
 </p>
 </body>
+<%@include file = "footer.jsp" %>
 </html>

@@ -12,8 +12,6 @@
 <body>
 	<%
 		request.setCharacterEncoding("UTF-8");
-		String address = (String)request.getAttribute("address");
-
 	%>
 	<h2>配送オプション</h2>
 	<form class = "radio" action = "/模擬プロジェクト/purchaseConfirmation" method = "post">
@@ -24,11 +22,11 @@
 		<input class = "radio-input" id = "c" type ="radio" name = "shipping" value = "お届け日時指定便　無料">
 		<label for = "c">お届け日時指定便　無料</label><br><br>
 
-		<h3>支払方法<br></h3>
-		<input type = "radio" checked = "checked">代金引換<br><br>
+	<h2>支払方法<br></h2>
+		<input class = "radio-input" id = "b" type = "radio" checked = "checked"><label for = "b">代金引換</label><br><br>
 
 		<input class = "btn-square" type = "submit" value = "次に進む"><br>
-		<input type = "hidden" name = "address" value = "<%= address%>">
+		<input type = "hidden" name = "address" value = "${ address}">
 	</form>
 </body>
 <%@include file = "footer.jsp" %>

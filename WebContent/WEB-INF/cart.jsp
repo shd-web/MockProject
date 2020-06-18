@@ -11,14 +11,15 @@
 </head>
 <%@include file = "header.jsp" %>
 <body>
-
+<div id="wrapper">
 <h2>ショッピングカート</h2>
 	<%
 		//カートに商品がないとき
 		if((int)session.getAttribute("countCart") == 0){
 	%>
 
-			カートは空です。<br><br>
+	現在、買い物かごには商品が入っていません。ぜひお買い物をお楽しみください。<br>
+	ご利用をお待ちしております。<br><br>
 	<%
 		}else{ //カートに商品があるとき(L86まで１ブロック)
 
@@ -135,8 +136,7 @@
 	<%
 		}
 	%>
-	<a href = "/模擬プロジェクト/itemSearch"></a>トップページへ<br>
-
+</div>
 </body>
 <%@include file = "footer.jsp" %>
 </html>

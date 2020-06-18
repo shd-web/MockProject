@@ -458,3 +458,8 @@ table td.teble{
 	pointer-events: none;
 	opacity: 0.5;
 }
+#wrapper{
+    display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

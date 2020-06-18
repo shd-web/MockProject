@@ -46,15 +46,17 @@ public class AccountSearch extends HttpServlet {
         AccountsDAO ad = new AccountsDAO();
         AccountsBeans returnAb = ad.findAccount(ab);
 
+        HttpSession session = request.getSession();
         if(returnAb != null) {
             // セッションにアカウント情報＆ロールを登録
-            HttpSession session = request.getSession();
+
             session.setAttribute("account", returnAb);
 
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/login_success.jsp");
             rd.forward(request, response);
 
         } else {
+        	System.out.println("登録されていないユーザーです");
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/login_error.jsp");
             rd.forward(request, response);
         }
